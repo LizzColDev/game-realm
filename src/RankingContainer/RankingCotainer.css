@@ -1,0 +1,30 @@
+.games-container {
+    margin-top: 24px;
+
+}
+
+.ranking-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+}
+.games-contain  {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 2rem;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    white-space: nowrap;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    height: 250px;
+  }
+
+.ranking-btn{
+    border-radius: 8px;
+    height: 32px;
+    width: 120px;
+}

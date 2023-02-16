@@ -1,0 +1,9 @@
+.game-container {
+    margin: 6px;
+    height: 100%;
+  }
+
+.game-img{
+    height: 100%;
+    border-radius: 6px;
+}

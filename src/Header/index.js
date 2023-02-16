@@ -18,16 +18,19 @@ function HeaderContainer(){
 					{/* <!-- links --> */}
 					<ul className="links">
 						<li>
-							<a href="index.html">Home</a>
+							<a href="index.html">Categories</a>
 						</li>
 						<li>
-							<a href="about.html">About</a>
+							<a href="about.html">Games</a>
 						</li>
 						<li>
-							<a href="Categories.html">Categories</a>
+							<a href="Categories.html">News</a>
 						</li>
 						<li>
-							<a href="contact.html">Contact</a>
+							<a href="Categories.html">Ranking</a>
+						</li>
+						<li>
+							<a href="contact.html">Guides and Tricks</a>
 						</li>
 					</ul>
 				</div>
