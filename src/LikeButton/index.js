@@ -1,8 +1,9 @@
 import React from 'react';
+import './LikeButton.css';
 
 function AddFavoriteButton(){
 	return(
-		<button>+</button>
+		<button className='like-btn btn'></button>
 	);
 }
 

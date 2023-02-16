@@ -23,11 +23,12 @@ body {
   color: var(--clr-white);
   font-family: 'Montserrat', Arial, Helvetica, sans-serif;
 }
-
-#root {
+*{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+#root {
   position: relative;
   min-height: 100vh;
 }
