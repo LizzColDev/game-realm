@@ -1,24 +1,36 @@
 import React from 'react';
 import { HeaderContainer } from '../Header';
-import { GameItem } from '../GameDetail';
-import {GameList} from '../GameContext';
-import { GamesContainer } from '../GamesContainer';
-import { AddFavoriteButton } from '../LikeButton';
-import { SearchContainer } from '../SearchContainer';
+import { RankingContainer } from '../RankingContainer';
+import {GameCard} from '../GameCard';
+import { SearchForm } from '../SearchForm';
+import {InputSearchGame} from '../InputForm';
 import './App.css';
+import { Categories } from '../Categories';
+import { GameContext } from '../GameContext';
 
-const games = [
-	{ name: 'The Last Of Us', category: 'action'},
-	{ name: 'The Witcher 3: Wild Hunt', category: 'action'},
-	{ name: 'The Legend of Zelda: Breath of the Wild', category: 'comic'},
-	{ name: 'Super Mario 64', category: 'comic'}
-];
 function AppUI() {
+
+	const {games} = React.useContext(GameContext) || {};
 	return (
-            {games.map(game => (
-                
-            ))}
+		<>
+			<HeaderContainer />
+			<SearchForm>
+				<InputSearchGame/>
+			</SearchForm>
+			<Categories></Categories>
+			<RankingContainer>
+				{games && games.map(game =>(
+					<GameCard
+						key={game.id}
+						alt={game.name}
+						src={game.background_image}
+					/>
+				))}	
+			</RankingContainer>
+		</>
+
 	);
 }
 
-export default AppUI;
+
+export {AppUI};

@@ -1,32 +1,19 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import React, {createContext} from 'react';
+import PropTypes from 'prop-types';
+import { useGameRanking } from './useGameRanking';
 
-const GameContext = React.createContext();
+const GameContext = createContext();
 
-function GameList() {
-	const [games, setGames] = useState([]);
-
-	useEffect(() => {
-		axios.get('https://www.giantbomb.com/api/games/?api_key=YOUR_API_KEY&format=json')
-			.then(response => setGames(response.data.results))
-			.catch(error => console.log(error));
-	}, []);
-
-	return (
-		<div>
-			{games.map(game => (
-				<div key={game.id}>
-					<h2>{game.name}</h2>
-					<img src={game.image.medium_url} alt={game.name} />
-					<p>{game.deck}</p>
-				</div>
-			))}
-		</div>
+function GameProvider(props){
+	const {games} = useGameRanking();
+	return(
+		<GameContext.Provider value={{games}}>
+			{props.children}
+		</GameContext.Provider>
 	);
 }
 
-// const GameProvider(props){
-// 	const []
-// }
-
-export {GameContext, GameList};
+GameProvider.propTypes = {
+	children: PropTypes.node.isRequired,
+};
+export {GameContext, GameProvider};

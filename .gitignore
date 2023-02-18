@@ -25,3 +25,6 @@ yarn-error.log*
 .babelrc
 .eslintrc
 webpack.config.js
+
+#APIKEY
+/src/API_KEY

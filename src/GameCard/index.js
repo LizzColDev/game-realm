@@ -13,9 +13,9 @@ function GameCard(props){
 	);
 }
 GameCard.propTypes = {
-	id: PropTypes.number.isRequired,
-	name: PropTypes.string.isRequired,
-	src: PropTypes.string.isRequired,
-	children: PropTypes.node.isRequired,
+	id: PropTypes.number,
+	name: PropTypes.string,
+	src: PropTypes.string,
+	children: PropTypes.node,
 };
 export {GameCard};
