@@ -1,10 +1,10 @@
 .games-container {
-    margin-top: 24px;
+    margin-top: 12px;
     background-image: url('https://img.freepik.com/free-vector/space-game-background-neon-night-alien-landscape_107791-1624.jpg?w=1380&t=st=1676606079~exp=1676606679~hmac=fdb55e04e2cc0eb13d82779087a7f57850c2a36b05ff3138bb8d91f38ee5e4a5');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    height: 320px;
+    height: 240px;
     box-shadow: 0px 0px 20px 8px rgb(0 0 0 / 50%);
 }
 
@@ -12,7 +12,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 12px 24px;
+    padding: 8px 0.6rem;
 }
 .games-contain  {
     display: flex;
@@ -25,22 +25,46 @@
     white-space: nowrap;
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
-    height: 250px;
+    height: 160px;
   }
 .ranking-title{
+  font-size: 1.8rem;
   margin-bottom: 0;
 }
 .ranking-btn{
-    border-radius: 8px;
-    height: 32px;
-    width: 120px;
+    border-radius: 6px;
+    height: 28px;
+    width: 100px;
 }
 
 /* Estilo para la barra de scroll horizontal */
 ::-webkit-scrollbar {
-    height: 8px; /* Ancho de la barra de scroll */
+    height: 4px; /* Ancho de la barra de scroll */
   }
   
   ::-webkit-scrollbar-thumb {
     background-color: #fb25cf; /* Color de la barra de scroll */
+  }
+
+  @media screen and (min-width: 950px) {
+    .games-container {
+      margin-top: 24px;
+      height: 320px;
+      box-shadow: 0px 0px 20px 8px rgb(0 0 0 / 50%);
+  }
+  .ranking-title{
+    font-size: 2rem;
+  }
+  .ranking-header{
+      padding: 12px 24px;
+  }
+  .games-contain  {
+      height: 250px;
+    }
+
+  .ranking-btn{
+      border-radius: 8px;
+      height: 32px;
+      width: 120px;
+  }
   }

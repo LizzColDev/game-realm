@@ -1,19 +1,7 @@
 .title{
     display: none;
-    /* font-family: 'Playfair Display', serif;
-    background: linear-gradient(45deg, #FFC107, #FF5722, #E91E63, #9C27B0, #673AB7, #3F51B5, #2196F3, #03A9F4, #00BCD4, #009688, #4CAF50, #8BC34A);
-    background-size: 200% 200%;
-    color: transparent;
-    background-clip: text;
-    animation: gradient 15s ease infinite;
-    padding: 0;
-    margin: 0 auto; */
 }
-/* @keyframes gradient {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-  } */
+
 nav {
   background: var(--clr-primary-2);
   box-shadow:  0 2px 4px var(--clr-primary-5);
@@ -103,12 +91,4 @@ nav {
     50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
   }
-  /* .links a {
-    padding: 0;
-    margin: 0 0.5rem;
-  }
-  .links a:hover {
-    padding: 0;
-    background: transparent;
-  } */
 }

@@ -1,18 +1,35 @@
 .formContainSearch {
     width: 100%;
-    padding: 12px 24px;
+    padding: 6px 0.6rem;
 }
 
 .searchContain{
     width: 100%;
-    height: 32px;
+    height: 28px;
     display: flex;
     justify-content: flex-end;
     align-items: stretch;
 }
 
 .btn-search {
-    width: 32px;
-    border-top-right-radius: 8px;
-    border-bottom-right-radius: 8px;
+    width: 28px;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
 }
+
+@media screen and (min-width: 950px) {
+    .formContainSearch {
+        padding: 12px 24px;
+    }
+    
+    .searchContain{
+        height: 32px;
+
+    }
+    
+    .btn-search {
+        width: 32px;
+        border-top-right-radius: 8px;
+        border-bottom-right-radius: 8px;
+    }
+  }
