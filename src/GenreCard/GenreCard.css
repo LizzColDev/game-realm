@@ -1,11 +1,12 @@
 .genre-contain {
-    outline: 4px ridge rgba(170, 50, 220, .6);
-    border-radius: 6px;
-    background-color: var(--clr-primary-4);
+    border:  none;
+    background-color: transparent;
     padding: 6px;
-    font-size: 0.8rem;
-    font-weight: 500;
-    border: none;
+    font-size: 1rem;
+    font-weight: bold;
+    color: var(--clr-grey-10);
+    border-radius: 8px;
+    box-shadow: 0 0 15px 1px rgba(170, 50, 220, 0.4);
 }
 
 .genre-contain:hover{
@@ -18,14 +19,11 @@ box-shadow: 0 0 10px 4px rgba(170, 50, 220, 0.4);
 
 @media screen and (min-width: 950px) {
     .genre-contain {
-        background-color: var(--clr-primary-4);
-        border-radius: 6px;
-        font-size: var(--xs);
+        font-size: 1.4rem;
         font-weight: 550;
-        border: none;
+
+
     }
+
     
-    .genre-contain:hover{
-        cursor: pointer;
-    }
   }

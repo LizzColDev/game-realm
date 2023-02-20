@@ -1,22 +1,66 @@
 .genres-container {
-    padding: 8px 0.6rem;
+    height: 100px;
+    margin-top: 6px;
+    padding-left: 0.6rem;
+    background-image: url('https://media.istockphoto.com/id/1170275727/es/vector/icono-de-fondo-de-patr%C3%B3n-vectorial-sin-costuras.jpg?s=612x612&w=0&k=20&c=PbVnD4P1ejlvZDu5DoIJHDjIgOGPM3vf4jRDSSrI1HA=');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    outline: 4px ridge rgba(170, 50, 220, .6);
 }
 .genres-contain {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    /* gap: 10px; */
     justify-content: center;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    white-space: nowrap;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    height: 60%;
+}
+.genres-contain::-webkit-scrollbar {
+    width: 4px; /* Ancho de la barra de scroll */
+  }
+  
+  .genres-contain::-webkit-scrollbar-thumb {
+    background-color: #fb25cf; /* Color de la barra de scroll */
+  }
+
+.genres-title{
+    margin: 0;
 }
 
 @media screen and (min-width: 950px) {
     .genres-container {
-        padding: 0;
+        /* padding: 0; */
+        padding: 12px 24px;
+        height: 160px;
     }
-    .genres-title{
+    /* .genres-title{
         margin: 12px 24px;
-    }
+    } */
     .genres-contain {
         gap: 14px;
         justify-content: center;
+    }
+  }
+
+  @media screen and (min-width: 1225px) {
+    .genres-container {
+        /* padding: 0; */
+        padding: 12px 24px;
+        height: 160px;
+    }
+    /* .genres-title{
+        margin: 12px 24px;
+    } */
+    .genres-contain {
+        gap: 14px;
+        justify-content: center;
+    }
+    .genres-contain {
+        overflow: hidden;
     }
   }

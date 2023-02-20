@@ -18,15 +18,6 @@ function AppUI() {
 				<SearchForm>
 					<InputSearchGame/>
 				</SearchForm>
-				<RankingContainer>
-					{games && games.map(game =>(
-						<GameCard
-							key={game.id}
-							alt={game.name}
-							src={game.background_image}
-						/>
-					))}	
-				</RankingContainer>
 				<GenresContainer>
 					{genres && genres.map(genre =>(
 						<GenreCard
@@ -37,6 +28,16 @@ function AppUI() {
 					))
 					}
 				</GenresContainer>
+				<RankingContainer>
+					{games && games.map(game =>(
+						<GameCard
+							key={game.id}
+							alt={game.name}
+							src={game.background_image}
+						/>
+					))}	
+				</RankingContainer>
+
 			</>
 			
 			
