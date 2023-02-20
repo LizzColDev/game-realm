@@ -5,11 +5,12 @@ import {GameCard} from '../GameCard';
 import { SearchForm } from '../SearchForm';
 import {InputSearchGame} from '../InputForm';
 import './App.css';
-import { Categories } from '../Categories';
 import { GameContext } from '../GameContext';
+import { GenresContainer } from '../GenresContainer';
+import { GenreCard } from '../GenreCard';
 
 function AppUI() {
-	const {games} = React.useContext(GameContext);
+	const {games, genres} = React.useContext(GameContext);
 	return (
 		<>
 			<HeaderContainer />
@@ -17,7 +18,6 @@ function AppUI() {
 				<SearchForm>
 					<InputSearchGame/>
 				</SearchForm>
-				<Categories></Categories>
 				<RankingContainer>
 					{games && games.map(game =>(
 						<GameCard
@@ -27,6 +27,16 @@ function AppUI() {
 						/>
 					))}	
 				</RankingContainer>
+				<GenresContainer>
+					{genres && genres.map(genre =>(
+						<GenreCard
+							key={genre.id}
+							name = {genre.name}
+							genreName = {genre.name}
+						/>
+					))
+					}
+				</GenresContainer>
 			</>
 			
 			

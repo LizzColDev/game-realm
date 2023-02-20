@@ -1,23 +1,14 @@
-import axios from 'axios';
 import { useEffect, useState } from 'react';
-
-const API_URL = 'https://api.rawg.io/api/games';
-
-
-const api = axios.create({
-	baseURL: API_URL,
-	headers: {
-		'Content-Type': 'aplication/json; charset=utf-8',
-	},
-});
+import {api} from './useAPI';
 
 function useGameRanking(apiKey){
+
 	const [games, setGames] = useState([]); 	
 
 	useEffect(() =>{
 		async function getRankingGames() {
 			try{
-				const {data} = await api.get('', {
+				const {data} = await api.get('games', {
 					params: {
 						key: apiKey,
 						metacritic: '80,100',
@@ -27,7 +18,7 @@ function useGameRanking(apiKey){
 				});
 	
 				setGames(data.results);
-				console.log('data', data.results);
+				console.log('games', data.results);
 			} catch(error){
 				console.error(error);
 			}

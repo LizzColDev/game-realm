@@ -22,6 +22,7 @@ body {
   background: var(--clr-primary-3);
   color: var(--clr-white);
   font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+  min-width: 300px;
 }
 *{
   margin: 0;
