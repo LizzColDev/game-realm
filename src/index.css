@@ -7,9 +7,9 @@
     /* grey used for paragraphs */
   --clr-grey-5: #955fe0;
   --clr-grey-6: #ad85e4;
-  --clr-grey-7: #c2aae5;
+  --clr-grey-7: #9582b1;
   --clr-grey-8: #d0c5e2;
-  --clr-grey-9: #d6d0e0;
+  --clr-grey-9: #7e7b84;
   --clr-grey-10: #e1e1e1;
   --clr-white: #fff;
   --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
@@ -63,8 +63,11 @@ h4 {
   font-size: 0.875rem;
 }
 p {
-  margin-bottom: 1.25rem;
   color: var(--clr-grey-5);
+}
+
+span{
+  color: var(--clr-grey-9) ;
 }
 
 .btn{
@@ -73,6 +76,7 @@ p {
   color: var(--clr-primary-3);
   font-weight: bold;
   font-size: 0.875rem;
+  z-index: -1;
 }
 
 .btn:hover{
@@ -96,7 +100,15 @@ p {
     object-fit: cover;
     border-radius: 4px;
 }
+.name-game{
+  position: absolute;
+  z-index: 1;
+}
 
+.game-img:hover, .name-game:hover{
+  cursor: pointer;
+  filter: brightness(0.6);
+ }
 @media screen and (min-width: 950px) {
   .game-container {
 

@@ -26,7 +26,9 @@
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
     height: 160px;
+    
   }
+
 .ranking-title{
   font-size: 1.8rem;
   margin-bottom: 0;

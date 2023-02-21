@@ -5,15 +5,15 @@ import './GameCard.css';
 
 function GameCard(props){
 	return(
-		<div key={props.id} alt={props.name} className='game-container'>
+		<div className='game-container'>
 			<img  className='game-img' src={props.src}/>
+			<h3 className='name-game'>{props.name} </h3>
 			<AddFavoriteButton/>
 		</div>
 
 	);
 }
 GameCard.propTypes = {
-	id: PropTypes.number,
 	name: PropTypes.string,
 	src: PropTypes.string,
 	children: PropTypes.node,

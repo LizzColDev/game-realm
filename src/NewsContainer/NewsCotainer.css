@@ -23,6 +23,7 @@
   @media screen and (min-width: 950px) {
     .news-container {
       margin-top: 24px;
+      
   }
   .news-title{
     font-size: 2rem;
@@ -32,9 +33,11 @@
   }
   .news-contain  {
     margin: 0 auto;
-    max-width: 80%;
+    max-width: 85%;
     justify-content: space-evenly;
     gap: 40px;
-  
+    display: flex;
+    flex-direction: column;
+    flex-direction: row-reverse;
     }
   }

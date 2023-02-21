@@ -9,8 +9,11 @@ function useGamesNews(){
 			try{
 				const {data} = await API_NEWS_GAMES.get('top-headlines', {
 					params: {
-						q: 'games',
-						category:'technology',}
+						q: 'game',
+						category:'technology',
+					
+					}
+
 				});
 	
 				setNews(data.articles);

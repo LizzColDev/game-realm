@@ -34,7 +34,7 @@ function AppUI() {
 					{games && games.map(game =>(
 						<GameCard
 							key={game.id}
-							alt={game.name}
+							name={game.name}
 							src={game.background_image}
 						/>
 						
@@ -47,7 +47,8 @@ function AppUI() {
 							name={game.title}
 							src={game.urlToImage}
 							date={game.publishedAt}
-
+							description={game.description}
+							source= {game.source.name}
 						/>	
 					))}	
 				</NewsContainer>
