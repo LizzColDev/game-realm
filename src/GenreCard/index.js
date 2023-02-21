@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import './GenreCard.css';
 
 function GenreCard(props){
-	console.log(props);
 	return(
 		<button type='button' key={props.id} className='genre-contain'>
 			{props.genreName}

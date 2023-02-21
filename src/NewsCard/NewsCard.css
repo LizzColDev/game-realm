@@ -1,0 +1,40 @@
+.news-section{
+    width: 80%;
+    height: 200px;
+    position: relative;
+}
+
+.news-img{
+  position: absolute;
+ width: 100%;
+ object-fit: cover;
+height: 100%;
+border-radius: 12px;
+}
+.title-news{
+  position: absolute;
+  z-index: 1;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.3);
+  padding: 10px;
+  color: var(--clr-primary-8);
+  margin-bottom: 0;
+}
+
+@media screen and (min-width: 950px) {
+
+  .news-section{
+    width: 40%;
+    height: 500px;
+  }
+  .news-header{
+      padding: 12px 24px;
+  }
+
+  .title-news{
+    font-size: 1.8rem;
+    padding: 10px;
+    color: var(--clr-primary-8);
+  }
+
+  }

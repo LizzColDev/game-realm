@@ -1,29 +1,20 @@
 import { useEffect, useState } from 'react';
-import { api } from './useAPI';
+import { API_RAWG } from './apiConfig';
 
-console.log('estoy eb useGamesgenres');
-function useGenres(apiKey){
+function useGenres(){
 	const [genres, setGenres] = useState([]); 	
 
 	useEffect(() =>{
 		async function getGenres() {
 			try{
-				const {data} = await api.get('genres', {
-					params: {
-						key: apiKey,
-					}
-				});
+				const {data} = await API_RAWG.get('genres', {});	
 				setGenres(data.results);
-				console.log('genres', data.results);
 			} catch(error){
 				console.error(error);
 			}
 		}
-
-		if(apiKey){
-			getGenres();
-		}
-	}, [apiKey]);
+		getGenres();
+	}, []);
 
 	return {
 		genres,

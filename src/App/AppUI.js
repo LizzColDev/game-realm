@@ -8,9 +8,11 @@ import './App.css';
 import { GameContext } from '../GameContext';
 import { GenresContainer } from '../GenresContainer';
 import { GenreCard } from '../GenreCard';
+import { NewsContainer } from '../NewsContainer';
+import { NewsCard } from '../NewsCard';
 
 function AppUI() {
-	const {games, genres} = React.useContext(GameContext);
+	const {games, genres, gamesNews} = React.useContext(GameContext);
 	return (
 		<>
 			<HeaderContainer />
@@ -35,9 +37,20 @@ function AppUI() {
 							alt={game.name}
 							src={game.background_image}
 						/>
+						
 					))}	
 				</RankingContainer>
+				<NewsContainer>
+					{gamesNews && gamesNews.map(game =>(
+						<NewsCard
+							key={game.title}
+							name={game.title}
+							src={game.urlToImage}
+							date={game.publishedAt}
 
+						/>	
+					))}	
+				</NewsContainer>
 			</>
 			
 			

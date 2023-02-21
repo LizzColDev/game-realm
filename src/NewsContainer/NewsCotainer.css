@@ -1,0 +1,40 @@
+.news-container {
+    margin-top: 12px;
+}
+
+.news-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 0.6rem;
+}
+.news-contain  {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 18px;
+
+  }
+.news-title{
+  font-size: 1.8rem;
+  margin-bottom: 0;
+}
+
+  @media screen and (min-width: 950px) {
+    .news-container {
+      margin-top: 24px;
+  }
+  .news-title{
+    font-size: 2rem;
+  }
+  .news-header{
+      padding: 12px 24px;
+  }
+  .news-contain  {
+    margin: 0 auto;
+    max-width: 80%;
+    justify-content: space-evenly;
+    gap: 40px;
+  
+    }
+  }
