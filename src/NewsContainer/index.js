@@ -4,7 +4,7 @@ import './NewsCotainer.css';
 
 function NewsContainer(props){
 	return(
-		<section className='news-container'>
+		<section className='news-container' id='news'>
 			<div className='news-header'>
 				<h2 className='news-title'>News</h2>
 			</div>

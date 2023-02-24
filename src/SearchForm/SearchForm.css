@@ -1,6 +1,6 @@
 .formContainSearch {
     width: 100%;
-    padding: 6px 0.6rem;
+    padding: 96px 24px 12px;
 }
 
 .searchContain{
@@ -18,9 +18,6 @@
 }
 
 @media screen and (min-width: 950px) {
-    .formContainSearch {
-        padding: 12px 24px;
-    }
     
     .searchContain{
         height: 32px;

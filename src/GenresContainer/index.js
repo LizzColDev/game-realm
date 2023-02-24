@@ -4,7 +4,7 @@ import './GenresContainer.css';
 
 function GenresContainer(props){
 	return(
-		<section className='genres-container'>
+		<section className='genres-container' id='genres'>
 			<h2 className='genres-title'>Genres</h2>
 			<article className='genres-contain'>
 				{props.children}

@@ -4,7 +4,7 @@ import './RankingCotainer.css';
 
 function RankingContainer(props){
 	return(
-		<section className='games-container'>
+		<section className='games-container' id='ranking'>
 			<div className='ranking-header'>
 				<h2 className='ranking-title'>Ranking</h2>
 				<button className='ranking-btn btn'>See more</button>

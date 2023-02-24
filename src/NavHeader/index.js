@@ -9,7 +9,7 @@ function NavHeader(){
 			<nav>
 				<div className="nav-center">
 					<NavTitleLogo className='nav-header'/>
-					<NavList className='links-nav'/>
+					<NavList className='links-nav'  />
 				</div>
 			</nav>
 		</>

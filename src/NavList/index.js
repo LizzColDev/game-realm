@@ -1,25 +1,40 @@
 import React from 'react';
 import './NavList.css';
 import PropTypes from 'prop-types';
+import { GameContext } from '../GameContext';
 
-function NavList({className}){
+
+function NavList({ className }) {
+	const { setOpenModal } = React.useContext(GameContext);
+
+	const onClickButton = (e) => {
+		setOpenModal(prevState => !prevState);
+
+		  let chosenMenu = e.target.textContent;
+		//   if (chosenMenu) {
+
+		// 	scrollToSection(chosenMenu.toLowerCase());
+			
+		//   }
+		  console.log('click en button', chosenMenu);
+	};
 	return(
 		<>
 			<ul className={className}>
 				<li>
-					<button  >Categories</button>
+					<a href='#genres' onClick={onClickButton}>Genres</a>
 				</li>
 				<li>
-					<button >Games</button>
+					<a href='#games'onClick={onClickButton}>Games</a>
 				</li>
 				<li>
-					<button >News</button>
+					<a href='#news' onClick={onClickButton}>News</a>
 				</li>
 				<li>
-					<button >Ranking</button>
+					<a href='#ranking' onClick={onClickButton}>Ranking</a>
 				</li>
 				<li>
-					<button >Guides and Tricks</button>
+					<a href='#guidesAndTricks' onClick={onClickButton}>Guides and Tricks</a>
 				</li>
 			</ul>
 		</>
@@ -27,8 +42,11 @@ function NavList({className}){
 }
 
 NavList.propTypes = {
-	className: PropTypes.string 
+	className: PropTypes.string,
+	setOpenModal: PropTypes.func,
+	scrollToSection: PropTypes.func
+
+
 };
   
 export {NavList};
-

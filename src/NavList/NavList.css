@@ -1,4 +1,4 @@
-.links-nav li button{
+.links-nav li a{
   color: var(--clr-grey-3);
   font-size: 1rem;
   text-transform: capitalize;
@@ -9,7 +9,7 @@
   background-color: transparent;
   border: 0;
 }
-.links-nav li button:hover {
+.links-nav li a:hover {
   border: 1px solid var(--clr-primary-5);
   color: var(--clr-primary-5);
   border-radius: 8px;
@@ -24,13 +24,6 @@
   height: 10rem;
 }
 
-/* .btn-menu {
-  padding: 12px;
-  background-color: transparent;
-  color: var(--clr-white);
-  font-size: ;
-
-} */
 .modal-links {
   width: 90%;
   height: auto;
@@ -53,7 +46,7 @@
   transition: var(--transition);
 }
 
-.modal-links li button{
+.modal-links li a{
   width: 80%;
   display: inline-block;
   background-color: transparent;
@@ -63,7 +56,7 @@
   border: none;
   border-bottom: solid 1px var(--clr-grey-7);
 }
-.modal-links li :hover {
+.modal-links li:hover {
   border: 1px solid var(--clr-primary-5);
   color: var(--clr-primary-5);
   border-radius: 8px;
