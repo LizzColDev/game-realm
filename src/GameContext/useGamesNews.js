@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import {API_NEWS_GAMES} from './apiConfig';
+import {API_NEWS_VIDEOGAMES} from './apiConfig';
 
 function useGamesNews(){
 	const [gamesNews, setNews] = useState([]); 	
@@ -7,26 +7,25 @@ function useGamesNews(){
 	useEffect(() =>{
 		async function getNewsGames() {
 			try{
-				const {data} = await API_NEWS_GAMES.get('top-headlines', {
+				const {data} = await API_NEWS_VIDEOGAMES.get('recent', {
 					params: {
-						q: 'game',
-						category:'technology',
-					
-					}
 
+					}
 				});
-	
-				setNews(data.articles);
+				
+				setNews(data);
 			} catch(error){
 				console.error(error);
 			}
 		}
 		getNewsGames();		
+		
 	}, []);
 
 	return {
 		gamesNews,
 	};
 }
+
 
 export {useGamesNews};

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { useGameRanking } from './useGameRanking';
 import { useGenres } from './useGamesGenres';
 import { useGamesNews } from './useGamesNews';
+import { usePlatformsGames } from './usePlatformsGames';
 
 
 const GameContext = createContext();
@@ -11,6 +12,7 @@ function GameProvider(props){
 	const {games} = useGameRanking();
 	const {genres} = useGenres();
 	const {gamesNews} = useGamesNews();
+	const {platforms} = usePlatformsGames();
 	const[openModal, setOpenModal] = useState(false);
 
 
@@ -21,6 +23,7 @@ function GameProvider(props){
 			gamesNews,
 			openModal,
 			setOpenModal,
+			platforms,
 		}}>
 			{props.children}
 		</GameContext.Provider>

@@ -7,16 +7,9 @@ import { GameContext } from '../GameContext';
 function NavList({ className }) {
 	const { setOpenModal } = React.useContext(GameContext);
 
-	const onClickButton = (e) => {
+	const onClickButton = () => {
 		setOpenModal(prevState => !prevState);
 
-		  let chosenMenu = e.target.textContent;
-		//   if (chosenMenu) {
-
-		// 	scrollToSection(chosenMenu.toLowerCase());
-			
-		//   }
-		  console.log('click en button', chosenMenu);
 	};
 	return(
 		<>
@@ -25,14 +18,15 @@ function NavList({ className }) {
 					<a href='#genres' onClick={onClickButton}>Genres</a>
 				</li>
 				<li>
-					<a href='#games'onClick={onClickButton}>Games</a>
+					<a href='#ranking' onClick={onClickButton}>Ranking</a>
+				</li>
+				<li>
+					<a href='#platforms'onClick={onClickButton}>Platforms</a>
 				</li>
 				<li>
 					<a href='#news' onClick={onClickButton}>News</a>
 				</li>
-				<li>
-					<a href='#ranking' onClick={onClickButton}>Ranking</a>
-				</li>
+				
 				<li>
 					<a href='#guidesAndTricks' onClick={onClickButton}>Guides and Tricks</a>
 				</li>
