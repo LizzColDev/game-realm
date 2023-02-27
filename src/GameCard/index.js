@@ -4,8 +4,10 @@ import {AddFavoriteButton} from '../LikeButton';
 import './GameCard.css';
 import { useIntersectionObserver } from '../GameContext/useIntersectionObserver';
 
-function GameCard(props){	
+function GameCard(props){
+	
 	const {imgRef, loaded} = useIntersectionObserver(props);
+	
 
 	return (
 		<div className="game-container">
