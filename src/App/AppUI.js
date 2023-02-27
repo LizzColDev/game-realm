@@ -12,6 +12,7 @@ import { NewsContainer } from '../NewsContainer';
 import { NewsCard } from '../NewsCard';
 import { Modal } from '../Modal';
 import { PlatformsContainer } from '../PlatformsContainer';
+import { UpcomingContainer } from '../UpcomingContainer';
 
 function AppUI() {
 	const {
@@ -20,6 +21,7 @@ function AppUI() {
 		gamesNews,
 		openModal,
 		platforms,
+		upComing,
 	} = React.useContext(GameContext);
 	return (
 		<>
@@ -48,6 +50,17 @@ function AppUI() {
 						
 				))}	
 			</RankingContainer>
+			<UpcomingContainer>
+				{upComing && upComing.map(game =>(
+					<GameCard
+						key={game.id}
+						name={game.name}
+						src={game.background_image
+						}
+					/>
+						
+				))}	
+			</UpcomingContainer>
 			<PlatformsContainer>
 				{platforms && platforms.map(game =>(
 					<GameCard

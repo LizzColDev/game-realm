@@ -8,7 +8,9 @@ function useGameRanking(){
 	useEffect(() =>{
 		async function getRankingGames() {
 			try{
-				const {data} = await API_RAWG.get('games', {});
+				const {data} = await API_RAWG.get('games', {
+					params: {'page_size': 10}
+				});
 				setGames(data.results);
 			} catch(error){
 				console.error(error);

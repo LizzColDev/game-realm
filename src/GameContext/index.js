@@ -4,6 +4,7 @@ import { useGameRanking } from './useGameRanking';
 import { useGenres } from './useGamesGenres';
 import { useGamesNews } from './useGamesNews';
 import { usePlatformsGames } from './usePlatformsGames';
+import { useUpcoming } from './useUpcomingGames';
 
 
 const GameContext = createContext();
@@ -14,7 +15,8 @@ function GameProvider(props){
 	const {gamesNews} = useGamesNews();
 	const {platforms} = usePlatformsGames();
 	const[openModal, setOpenModal] = useState(false);
-
+	const {upComing} = useUpcoming();
+	
 
 	return(
 		<GameContext.Provider value={{
@@ -24,6 +26,7 @@ function GameProvider(props){
 			openModal,
 			setOpenModal,
 			platforms,
+			upComing,
 		}}>
 			{props.children}
 		</GameContext.Provider>

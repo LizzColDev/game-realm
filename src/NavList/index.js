@@ -21,6 +21,9 @@ function NavList({ className }) {
 					<a href='#ranking' onClick={onClickButton}>Ranking</a>
 				</li>
 				<li>
+					<a href='#upcoming' onClick={onClickButton}>Upcoming Games</a>
+				</li>
+				<li>
 					<a href='#platforms'onClick={onClickButton}>Platforms</a>
 				</li>
 				<li>

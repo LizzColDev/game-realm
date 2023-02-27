@@ -22,7 +22,6 @@
     margin-bottom: 2rem;
     overflow-y: hidden;
     overflow-x: scroll;
-    white-space: nowrap;
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
     height: 160px;
