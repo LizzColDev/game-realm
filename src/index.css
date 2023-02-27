@@ -104,6 +104,10 @@ section[id]{
     height: 100%;
     object-fit: cover;
     border-radius: 4px;
+    transition: opacity 0.3s ease-in-out;
+}
+.game-img.loaded {
+  opacity: 1;
 }
 .name-game{
   position: absolute;
@@ -114,7 +118,22 @@ section[id]{
   cursor: pointer;
   filter: brightness(0.6);
  }
+
+
 @media screen and (min-width: 950px) {
+  .skeleton {
+    background-color: #f0f0f0;
+    animation: loading 0.5s ease-in-out infinite alternate;
+  }
+  
+  @keyframes loading {
+    from {
+      background-color: #f0f0f0;
+    }
+    to {
+      background-color: #939393;
+    }
+  }
   .game-container {
 
       margin: 6px;
