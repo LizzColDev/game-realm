@@ -1,0 +1,9 @@
+.games-by-genres{
+    display: flex;
+}
+
+.games-by-genres{
+    display: flex;
+    flex-wrap: wrap;
+    height: 250px;
+}

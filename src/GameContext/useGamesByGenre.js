@@ -1,31 +1,31 @@
 import { useEffect, useState } from 'react';
 import {API_RAWG} from './apiConfig';
 
-function useGameRanking(){
+function useGamesByGenre(){
 
-	const [games, setGames] = useState([]); 	
+	const [gamesByGenre, setGames] = useState([]); 	
 
 	useEffect(() =>{
-		async function getRankingGames() {
+		async function getGames() {
 			try{
 				const {data} = await API_RAWG.get('games', {
-					// params: {'page': 3}
-					
+					params: {'genres': 'action'}
 				});
 				setGames(data.results);
+				console.log(data.results);
 			} catch(error){
 				console.error(error);
 			}
 		}
 
 
-		getRankingGames();
+		getGames();
 		
 	}, []);
 
 	return {
-		games,
+		gamesByGenre,
 	};
 }
 
-export {useGameRanking};
+export {useGamesByGenre};

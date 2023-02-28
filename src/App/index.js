@@ -1,13 +1,14 @@
 import React from 'react';
 import { GameProvider } from '../GameContext';
+import { AppRouter } from '../routers/AppRouter';
 
-import { AppUI } from './AppUI';
+
 
 function App() {
   
 	return (
 		<GameProvider>
-			<AppUI/>   
+			< AppRouter/>
 		</GameProvider>   
 	);
 }
