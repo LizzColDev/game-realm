@@ -3,18 +3,22 @@ import {API_RAWG} from './apiConfig';
 
 function useGameRanking(){
 	const [games, setGames] = useState([]); 	
-	console.log(games);
 
 	useEffect(() =>{
 		async function getRankingGames() {
 			try{
 				const {data} = await API_RAWG.get('games', {
-					params: {'page_size': 10}
+					params: {
+						'page_size': 10,
+						// 'dates': '2022-06-01,2023-02-28',
+						ordering:'-added'
+					}
 
 
 					
 				});
 				setGames(data.results);
+				console.log(data.results);
 			} catch(error){
 				console.error(error);
 			}
