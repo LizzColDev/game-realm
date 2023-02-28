@@ -12,7 +12,6 @@ function usePlatformsGames(){
 					params: {'page_size': '6'}
 				});
 				setPlatforms(data.results);
-				console.log(data.results);
 			} catch(error){
 				console.error(error);
 			}

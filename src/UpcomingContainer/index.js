@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './UpcomingContainer.css';
+import { Link } from 'react-router-dom';
 
 
 function UpcomingContainer(props){
@@ -12,7 +13,10 @@ function UpcomingContainer(props){
 			<section className='upcoming-container' id='upcoming'>
 				<div className='upcoming-header'>
 					<h2 className='upcoming-title'>Upcoming Games {currentYear}</h2>
-					<button className='upcoming-btn btn'>See more</button>
+					<Link to={'/upcoming'}>
+						<button className='upcoming-btn btn'>See more</button>
+
+					</Link>
 				</div>
 				<article className='upcoming-contain'>
 					{props.children}

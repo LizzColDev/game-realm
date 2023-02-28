@@ -16,8 +16,21 @@ function GameProvider(props){
 	const {platforms} = usePlatformsGames();
 	const[openModal, setOpenModal] = useState(false);
 	const {upComing} = useUpcoming();
-	const {gamesByGenre} = useGamesByGenre();
 
+	const [page, setPage] = useState('');
+
+	const getPage = (select) =>setPage(select);
+
+	const {gamesByGenre} = useGamesByGenre(page);
+
+	function goPages(e) {
+		const name = e.target.textContent.toLowerCase();
+		const nameJoined = () =>{
+			const words = name.split(' ');
+			return words.length > 1 ? words.join('-') : name;
+		};
+		getPage(nameJoined);
+	}
 	return(
 		<GameContext.Provider value={{
 			games, 
@@ -28,6 +41,8 @@ function GameProvider(props){
 			platforms,
 			upComing,
 			gamesByGenre,
+			page,
+			goPages
 		}}>
 			{props.children}
 		</GameContext.Provider>

@@ -15,7 +15,6 @@ function useUpcoming(){
 					params: {'dates': '2023-02-26,2024-02-26'}
 				});
 				setUpcoming(data.results);
-				console.log(data.results);
 			} catch(error){
 				console.error(error);
 			}

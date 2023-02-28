@@ -27,6 +27,7 @@ function AppUI() {
 		upComing,
 	} = React.useContext(GameContext);
 
+
 	return (
 		<>
 			<NavHeader />
@@ -36,6 +37,7 @@ function AppUI() {
 			</SearchForm>
 			<GenresContainer>
 				{genres && genres.map(genre =>(
+					
 					<GenreCard
 						key={genre.id}
 						name = {genre.name}

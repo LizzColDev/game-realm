@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import './GenresContainer.css';
 
 function GenresContainer(props){
+	
 	return(
 		<section className='genres-container' id='genres'>
 			<h2 className='genres-title'>Genres</h2>
