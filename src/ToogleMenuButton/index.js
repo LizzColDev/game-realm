@@ -3,6 +3,7 @@ import './ToogleMenuButton.css';
 import PropTypes from 'prop-types';
 
 function ToogleMenuButton(props){
+	console.log(props);
 	const onClickButton = () => {
 		props.setOpenModal(prevState => !prevState);
 	};

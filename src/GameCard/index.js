@@ -7,7 +7,11 @@ import { useIntersectionObserver } from '../GameContext/useIntersectionObserver'
 function GameCard(props){
 	
 	const {imgRef, loaded} = useIntersectionObserver(props);
-	
+	console.log(props);
+
+	const onClickButton = () => {
+		props.setOpenModalByGame(prevState => !prevState);
+	};
 
 	return (
 		<div className="game-container">
@@ -17,6 +21,7 @@ function GameCard(props){
 				ref={imgRef}
 				src={props.src}
 				loading="lazy"
+				onClick={onClickButton}
 			/>
 			
 
@@ -30,5 +35,7 @@ GameCard.propTypes = {
 	name: PropTypes.string,
 	src: PropTypes.string,
 	children: PropTypes.node,
+	setOpenModalByGame: PropTypes.func
+
 };
 export default GameCard;

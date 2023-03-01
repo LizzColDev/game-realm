@@ -1,13 +1,17 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-function GameItem(props){
+function GameItem(){
 	return(
 		<li>
 			<span>C</span>
-			<p>{props.text} </p>
+			<p>Juego </p>
 			<span>X</span>
 		</li>
 	);
 }
-    
+
+GameItem.propTypes = {
+	text: PropTypes.string
+};
 export { GameItem };

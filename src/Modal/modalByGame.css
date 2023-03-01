@@ -1,0 +1,13 @@
+.modalBackground-Game{
+    background: rgba(32, 35, 41, .9);
+    position: fixed;
+    top: 5%;
+    left: 6%;
+    right: 6%;
+    bottom: -10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    z-index: 5;
+}

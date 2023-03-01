@@ -15,6 +15,8 @@ function GameProvider(props){
 	const {gamesNews} = useGamesNews();
 	const {platforms} = usePlatformsGames();
 	const[openModal, setOpenModal] = useState(false);
+	const[openModalByGame, setOpenModalByGame] = useState(false);
+
 	const {upComing} = useUpcoming();
 
 	const [page, setPage] = useState('');
@@ -42,7 +44,9 @@ function GameProvider(props){
 			upComing,
 			gamesByGenre,
 			page,
-			goPages
+			goPages,
+			openModalByGame,
+			setOpenModalByGame
 		}}>
 			{props.children}
 		</GameContext.Provider>
