@@ -1,23 +1,27 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import PropTypes from 'prop-types';
-import {AddFavoriteButton} from '../LikeButton';
 import './GameCard.css';
 import { useIntersectionObserver } from '../GameContext/useIntersectionObserver';
+import { GameContext } from '../GameContext';
 
 function GameCard(props){
-	
-	const {imgRef, loaded} = useIntersectionObserver(props);
-	console.log(props);
+	const {getId, setOpenModalByGame} =useContext(GameContext);
 
-	const onClickButton = () => {
-		props.setOpenModalByGame(prevState => !prevState);
+	const {imgRef, loaded} = useIntersectionObserver(props);
+
+	const onClickButton = (e) => {
+		const idGame = e.target.id;
+		getId(idGame);
+		setOpenModalByGame(prevState => !prevState);
 	};
 
 	return (
-		<div className="game-container">
+		<div key={props.id} className="game-container">
 			
 			<img
 				className={`game-img ${loaded ? 'loaded' : 'skeleton'}`}
+				id={props.id}
+				name={props.name}
 				ref={imgRef}
 				src={props.src}
 				loading="lazy"
@@ -25,13 +29,14 @@ function GameCard(props){
 			/>
 			
 
-			<h3 className="name-game">{props.name} </h3>
-			<AddFavoriteButton />
+			<h3 alt={props.id} className="name-game">{props.name} </h3>
+			
 		</div>
 	);
 }
 
 GameCard.propTypes = {
+	id: PropTypes.number,
 	name: PropTypes.string,
 	src: PropTypes.string,
 	children: PropTypes.node,

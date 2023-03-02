@@ -1,13 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { GameItem } from '../GameDetail';
+import { GameContain} from '../GameDetail';
 
 import './modalByGame.css';
 
 function ModalByGame(){
 	return ReactDOM.createPortal(
 		<div className="modalBackground-Game">
-			<GameItem className='game-details'/>	
+			<GameContain/>	
 		</div>,
             
 		document.getElementById('gameById')

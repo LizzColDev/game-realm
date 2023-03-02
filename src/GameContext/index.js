@@ -6,6 +6,7 @@ import { useGamesNews } from './useGamesNews';
 import { usePlatformsGames } from './usePlatformsGames';
 import { useUpcoming } from './useUpcomingGames';
 import {useGamesByGenre} from './useGamesByGenre';
+import { useGameById } from './useGameById';
 
 const GameContext = createContext();
 
@@ -16,10 +17,14 @@ function GameProvider(props){
 	const {platforms} = usePlatformsGames();
 	const[openModal, setOpenModal] = useState(false);
 	const[openModalByGame, setOpenModalByGame] = useState(false);
-
 	const {upComing} = useUpcoming();
-
+	const [id, setId] = useState(null);
+	const getId = (select) =>setId(select);
+	
+	const {gameById} = useGameById(id);
+	console.log(gameById);
 	const [page, setPage] = useState('');
+	console.log(games);
 
 	const getPage = (select) =>setPage(select);
 
@@ -46,7 +51,9 @@ function GameProvider(props){
 			page,
 			goPages,
 			openModalByGame,
-			setOpenModalByGame
+			setOpenModalByGame,
+			gameById,
+			getId,
 		}}>
 			{props.children}
 		</GameContext.Provider>

@@ -1,0 +1,24 @@
+.close-btn {
+    font-size: 1.3rem;
+    color: var(--clr-grey-10);
+    background-color: transparent;
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    height: 30px;
+    width: 30px;
+    border-radius: 30px;
+    padding: 0;
+    margin: 0;
+    z-index: 1;
+    font-weight: bold;
+    border-color: transparent;
+}
+
+p:hover{
+    cursor: pointer;
+}
+
+.contain-img {
+    position: relative;
+}
