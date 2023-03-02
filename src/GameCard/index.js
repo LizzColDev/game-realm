@@ -4,7 +4,7 @@ import './GameCard.css';
 import { useIntersectionObserver } from '../GameContext/useIntersectionObserver';
 import { GameContext } from '../GameContext';
 
-function GameCard(props){
+function GameCard({className, ...props}){
 	const {getId, setOpenModalByGame} =useContext(GameContext);
 
 	const {imgRef, loaded} = useIntersectionObserver(props);
@@ -19,7 +19,7 @@ function GameCard(props){
 		<div key={props.id} className="game-container">
 			
 			<img
-				className={`game-img ${loaded ? 'loaded' : 'skeleton'}`}
+				className={`${className} ${loaded ? 'loaded' : 'skeleton'}`}
 				id={props.id}
 				name={props.name}
 				ref={imgRef}
@@ -40,7 +40,7 @@ GameCard.propTypes = {
 	name: PropTypes.string,
 	src: PropTypes.string,
 	children: PropTypes.node,
-	setOpenModalByGame: PropTypes.func
-
+	setOpenModalByGame: PropTypes.func,
+	className: PropTypes.func
 };
 export default GameCard;

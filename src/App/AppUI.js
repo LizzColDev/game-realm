@@ -57,6 +57,7 @@ function AppUI() {
 				{games && games.map(game =>(
 					<Suspense key={game.id} fallback={<div>Cargando...</div>}>
 						<LazyGameCard
+							className='ranking-img'
 							id={game.id}
 							name={game.name}
 							src={game.background_image}
@@ -70,6 +71,7 @@ function AppUI() {
 				{upComing && upComing.map(game =>(
 					<Suspense key={game.id} fallback={<div className="skeleton">Cargando...</div>}>
 						<LazyGameCard
+							className='upcoming-img'
 							id={game.id}
 							name={game.name}
 							src={game.background_image}
@@ -82,7 +84,7 @@ function AppUI() {
 			<PlatformsContainer>
 				{platforms && platforms.map(game =>(
 					<Suspense key={game.id} fallback={<div className="skeleton">Cargando...</div>}>
-						<LazyGameCard  name={game.name} src={game.image_background} />
+						<LazyGameCard className='platforms-img' name={game.name} src={game.image_background} />
 
 		  </Suspense>
 				))}
@@ -90,8 +92,7 @@ function AppUI() {
 			<NewsContainer>
 				{gamesNews && gamesNews.map(game =>(
 					<Suspense key={game.title} fallback={<div className="skeleton">Cargando...</div>}>
-						<LazyNewsImage
-
+						<LazyNewsImage							
 							name={game.title}
 							src={game.image}
 							url={game.link}
@@ -130,6 +131,7 @@ function AppUI() {
 			 >
 
 			 	{gameById && <GameContain
+				
 			 		id={gameById.id}
 			 		name={gameById.name}
 			 		released = {gameById.released}

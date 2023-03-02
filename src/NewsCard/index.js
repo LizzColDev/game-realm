@@ -30,7 +30,7 @@ function NewsCard(props){
 		<div  className={`news-section ${isMobile ? 'mobile-news-section' : ''}`} onMouseOver={handleImageClick} onMouseOut={handleImageClick}>
 			
 			<img  
-				className={`game-img ${loaded ? 'loaded' : 'skeleton'}`}
+				className={`news-img ${loaded ? 'loaded' : 'skeleton'}`}
 				ref={imgRef}
 				loading='lazy' 
 				src={imgSrc}

@@ -13,6 +13,52 @@
     font-size: 0.9rem;
     font-family: Brutal_Bold,sans-serif;
 }
+
+.ranking-img{
+}
+
+.news-img{
+    max-width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 4px;
+      transition: opacity 0.3s ease-in-out;
+  }
+  .news-img.loaded {
+    opacity: 1;
+  }
+  .name-game{
+    position: absolute;
+    z-index: 1;
+  }
+  
+  .news-img:hover, .name-game:hover{
+    cursor: pointer;
+    filter: brightness(0.6);
+   }
+  
+  
+  @media screen and (min-width: 950px) {
+    .skeleton {
+      background-color: #f0f0f0;
+      animation: loading 0.5s ease-in-out infinite alternate;
+    }
+    
+    @keyframes loading {
+      from {
+        background-color: #f0f0f0;
+      }
+      to {
+        background-color: #939393;
+      }
+    }
+    
+    .news-img{
+        width: 60%;
+      max-width: 300px;
+        border-radius: 6px;
+    }
+  }
 @media all and (min-width: 480px) and (max-width: 768px) {
 
     .name-game{
