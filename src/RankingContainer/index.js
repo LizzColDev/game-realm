@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 function RankingContainer(props){
 	return(
-		<section className='games-container' id='ranking'>
+		<section className='rankingGames-container' id='ranking'>
 			<div className='ranking-header'>
 				<h2 className='ranking-title'>Ranking</h2>
 				<Link to={'/ranking'}>

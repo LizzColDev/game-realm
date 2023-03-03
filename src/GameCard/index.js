@@ -16,10 +16,10 @@ function GameCard({className, ...props}){
 	};
 
 	return (
-		<div key={props.id} className="game-container">
+		<div key={props.id} className={className}>
 			
 			<img
-				className={`${className} ${loaded ? 'loaded' : 'skeleton'}`}
+				className={`'img-card' ${loaded ? 'loaded' : 'skeleton'}`}
 				id={props.id}
 				name={props.name}
 				ref={imgRef}
@@ -41,6 +41,6 @@ GameCard.propTypes = {
 	src: PropTypes.string,
 	children: PropTypes.node,
 	setOpenModalByGame: PropTypes.func,
-	className: PropTypes.func
+	className: PropTypes.string
 };
 export default GameCard;

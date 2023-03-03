@@ -1,4 +1,4 @@
-.games-container {
+.rankingGames-container {
     margin-top: 12px;
     background-image: url('https://img.freepik.com/free-vector/space-game-background-neon-night-alien-landscape_107791-1624.jpg?w=1380&t=st=1676606079~exp=1676606679~hmac=fdb55e04e2cc0eb13d82779087a7f57850c2a36b05ff3138bb8d91f38ee5e4a5');
     background-size: cover;
@@ -49,9 +49,18 @@
   }
 
   @media screen and (min-width: 950px) {
-    .games-container {
+    .games-contain {
+      justify-content: space-between;
+      height: 400px;
+      width: 90%;
+      margin: 0 auto;
+      overflow-x: hidden;
+    }    
+
+
+    .rankingGames-container {
       margin-top: 24px;
-      height: 320px;
+      height: 500px;
       box-shadow: 0px 0px 20px 8px rgb(0 0 0 / 50%);
   }
   .ranking-title{
@@ -60,9 +69,6 @@
   .ranking-header{
       padding: 12px 24px;
   }
-  .games-contain  {
-      height: 250px;
-    }
 
   .ranking-btn{
       border-radius: 8px;
