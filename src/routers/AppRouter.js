@@ -13,14 +13,14 @@ import { GameContext } from '../GameContext';
 
 const LazyGameCard = lazy(() => import('../GameCard'));
 function AppRouter(){
-	const{gamesByGenre, games, upComing} = React.useContext(GameContext);
+	const{gamesByGenre, games, upComing, page} = React.useContext(GameContext);
+	console.log(gamesByGenre);
 	return(
 		// eslint-disable-next-line react/react-in-jsx-scope
 		<Router>
 			<Routes>
 				<Route path='/genres' element={
-					<GamesByGenresPage>
-
+					<GamesByGenresPage name={page}>
 						{gamesByGenre && gamesByGenre.map(game =>(                            
 							<Suspense key={game.id} fallback={<div>Cargando...</div>}>
 								<LazyGameCard

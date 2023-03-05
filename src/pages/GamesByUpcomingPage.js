@@ -6,7 +6,7 @@ function GamesByUpcomingPage(props){
 	document.body.style.overflow = 'auto';
 
 	return(<div className='pages-container'>
-		<div>Upcoming Games</div>
+		<h1>Upcoming Games</h1>
 		<div className='page-contain-img' >
 			{props.children}
 		</div>

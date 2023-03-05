@@ -8,7 +8,7 @@ function GamesByGenresPage(props){
 
 	return(
 		<div className='pages-container'>
-			<h1>Games by Genre</h1>
+			<h1>{props.name} Games</h1>
 			<div className='page-contain-img' >
 				{props.children}
 			</div>

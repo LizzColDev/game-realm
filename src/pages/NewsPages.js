@@ -4,7 +4,7 @@ function NewsPage(){
 	document.body.style.overflow = 'auto';
 
 	return(
-		<div>Games News</div>
+		<h1>Games News</h1>
 	);
 }
 

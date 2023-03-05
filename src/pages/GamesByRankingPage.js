@@ -10,7 +10,7 @@ function GamesByRankingPage(props){
 
 	return(
 		<div className='pages-container'>
-			<div>Games by Ranking</div>
+			<h1>Games by Ranking</h1>
 			<div className='page-contain-img' >
 				{props.children}
 			</div>
