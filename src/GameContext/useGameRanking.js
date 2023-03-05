@@ -18,7 +18,6 @@ function useGameRanking(){
 					
 				});
 				setGames(data.results);
-				console.log(data.results);
 			} catch(error){
 				console.error(error);
 			}

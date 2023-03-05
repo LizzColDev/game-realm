@@ -22,9 +22,7 @@ function GameProvider(props){
 	const getId = (select) =>setId(select);
 	
 	const {gameById} = useGameById(id);
-	console.log(gameById);
 	const [page, setPage] = useState('');
-	console.log(games);
 
 	const getPage = (select) =>setPage(select);
 

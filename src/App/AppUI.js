@@ -16,8 +16,6 @@ import { GameContain} from '../GameDetail';
 
 const LazyGameCard = lazy(() => import('../GameCard'));
 const LazyNewsImage = lazy(()=> import ('../NewsCard'));
-// const LazyGameById = lazy(()=> import ('../GameDetail'));
-
 
 function AppUI() {
 	const {
@@ -33,7 +31,6 @@ function AppUI() {
 
 	} = React.useContext(GameContext);
 
-	console.log(gameById);
 	return (
 		<>
 			<NavHeader />
@@ -101,34 +98,17 @@ function AppUI() {
 						/>
 					</Suspense>
 
-
 				))}
+
 			</NewsContainer>
 			{!!openModal && (
 				<Modal>
 
 				</Modal>
 			)}
-			{/* {!!openModalByGame && gameById && (
-				<ModalByGame>
-					<Suspense key={gameById.name} fallback={<div className="skeleton">Cargando...</div>}>
-
-						<LazyGameById
-							id={gameById.id}
-							name={gameById.name}
-							released = {gameById.released}
-							src={gameById.background_image}
-							description={gameById.description}
-							rating={gameById.rating}
-						/>;
-					</Suspense>
-				</ModalByGame>
-			)} */}
 			
 			{!!openModalByGame && gameById &&
-			 <ModalByGame
-				
-			 >
+			 <ModalByGame>
 
 			 	{gameById && <GameContain
 				
@@ -140,8 +120,8 @@ function AppUI() {
 			 		rating={gameById.rating}
 			 	/>};
 		
-			 </ModalByGame>}
-	
+			 </ModalByGame>
+			}	
 		</>
 
 	);

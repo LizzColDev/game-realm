@@ -3,7 +3,6 @@ import {API_RAWG} from './apiConfig';
 
 function useGameById(id){
 	const [gameById, setGame] = useState([]); 	
-	console.log(id);
 	useEffect(() =>{
 		async function getGameById() {
 			try{
@@ -13,7 +12,6 @@ function useGameById(id){
 					}	
 				});
 				setGame(data);
-				console.log(data);
 			} catch(error){
 				console.error(error);
 			}
