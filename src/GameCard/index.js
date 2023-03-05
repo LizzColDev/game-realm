@@ -19,7 +19,7 @@ function GameCard({className, ...props}){
 		<div key={props.id} className={className}>
 			
 			<img
-				className={`'img-card' ${loaded ? 'loaded' : 'skeleton'}`}
+				className={`img-card ${loaded ? 'loaded' : 'skeleton'}`}
 				id={props.id}
 				name={props.name}
 				ref={imgRef}

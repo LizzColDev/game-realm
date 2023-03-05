@@ -24,6 +24,7 @@ function AppRouter(){
 						{gamesByGenre && gamesByGenre.map(game =>(                            
 							<Suspense key={game.id} fallback={<div>Cargando...</div>}>
 								<LazyGameCard
+									className='pages'
 									key={game.id}
 									name={game.name}
 									src={game.background_image}
@@ -38,6 +39,8 @@ function AppRouter(){
 					{games && games.map(game =>(
 						<Suspense key={game.id} fallback={<div>Cargando...</div>}>
 							<LazyGameCard
+								className='pages'
+
 								key={game.id}
 								name={game.name}
 								src={game.background_image}
@@ -53,6 +56,8 @@ function AppRouter(){
 					{upComing && upComing.map(game =>(
 						<Suspense key={game.id} fallback={<div className="skeleton">Cargando...</div>}>
 							<LazyGameCard  key={game.id}
+								className='pages'
+
 								name={game.name}
 								src={game.background_image
 								} />

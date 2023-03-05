@@ -5,11 +5,10 @@ import './styles.css';
 
 function GamesByGenresPage(props){
 	return(
-		<div className='container-games'>
+		<div className='pages-container'>
 			<h1>Games by Genre</h1>
-			<div className='games-by-genres' >
+			<div className='page-contain-img' >
 				{props.children}
-
 			</div>
 		</div>
 	);

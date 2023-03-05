@@ -1,14 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import './styles.css';
 
 
 //pend infinite scrolling
 
 function GamesByRankingPage(props){
 	return(
-		<div className='container-by-ranking'>
+		<div className='pages-container'>
 			<div>Games by Ranking</div>
-			{props.children}
+			<div className='page-contain-img' >
+				{props.children}
+			</div>
 		</div>
 		
 	);

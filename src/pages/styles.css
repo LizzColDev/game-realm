@@ -1,9 +1,41 @@
-.games-by-genres{
+.pages-container{
     display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: 6px;
+    gap: 6px;
+    align-items: center;
+    margin: 0 auto;
 }
 
-.games-by-genres{
+.page-contain-img{
     display: flex;
     flex-wrap: wrap;
-    height: 250px;
+    gap: 12px;
+    justify-content: center;
+    flex-direction: column;
 }
+.pages{
+    width: 100%;
+    height: 300px;
+    position: relative;
+    text-align: center;
+    max-width: 900px;
+}
+
+@media all and (min-width: 480px) and (max-width: 768px) {
+    .pages{
+        height: 500px;
+    }
+ }
+
+ 
+ @media all and (min-width: 768px) {
+    .page-contain-img{
+        gap: 36px;
+    }
+    .pages{
+        height: 900px;
+    }
+
+  }
