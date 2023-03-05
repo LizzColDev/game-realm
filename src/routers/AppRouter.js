@@ -9,12 +9,21 @@ import {NewsPage} from '../pages/NewsPages';
 import {NotFoundPage} from '../pages/NotFoundPage';
 import { HomePage } from '../pages/HomePage';
 import { GameContext } from '../GameContext';
+import { ModalByGame } from '../Modal/modalByGame';
+import { GameContain } from '../GameDetail';
 
 
 const LazyGameCard = lazy(() => import('../GameCard'));
 function AppRouter(){
-	const{gamesByGenre, games, upComing, page} = React.useContext(GameContext);
-	console.log(gamesByGenre);
+	const{
+		gamesByGenre, 
+		games, 
+		upComing, 
+		page, 
+		setOpenModalByGame, 
+		openModalByGame, 
+		gameById 
+	} = React.useContext(GameContext);
 	return(
 		// eslint-disable-next-line react/react-in-jsx-scope
 		<Router>
@@ -24,10 +33,11 @@ function AppRouter(){
 						{gamesByGenre && gamesByGenre.map(game =>(                            
 							<Suspense key={game.id} fallback={<div>Cargando...</div>}>
 								<LazyGameCard
+									id={game.id}
 									className='pages'
-									key={game.id}
 									name={game.name}
 									src={game.background_image}
+									setOpenModalByGame={setOpenModalByGame}
 								/>
 				
 							</Suspense>
@@ -73,8 +83,23 @@ function AppRouter(){
 				<Route path='*' element={<NotFoundPage />} />
 					
 			</Routes>
+			{!!openModalByGame && gameById &&
+			<ModalByGame>
 
+				{gameById && <GameContain
+			   
+					id={gameById.id}
+					name={gameById.name}
+					released = {gameById.released}
+					src={gameById.background_image}
+					description={gameById.description}
+					rating={gameById.rating}
+				/>};
+	   
+			</ModalByGame>
+		   }	
 		</Router>
+		
 	);
 }
 

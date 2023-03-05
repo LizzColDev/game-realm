@@ -37,12 +37,6 @@ function GameProvider(props){
 		};
 		getPage(nameJoined);
 	}
-
-	if(openModal || openModalByGame){
-		document.body.style.overflow = 'hidden';
-	}else{
-		document.body.style.overflow = 'auto';
-	}
 	
 	return(
 		<GameContext.Provider value={{
