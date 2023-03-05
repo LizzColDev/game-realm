@@ -1,0 +1,138 @@
+.game-id{
+    margin: 30px;
+    width: 90%;
+    max-width: 950px;
+    background-color: rgba(32, 35, 41, .99);
+
+}
+
+.contain-rating-name{
+    margin-bottom: 4px;
+    display: flex;
+    position: absolute;
+    width: 100%;
+    bottom:0;
+    left: 0;
+    right: 0;
+    justify-content: space-between;
+}
+
+.contain-rating-name p,
+.contain-rating-name h1    {
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 4px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    box-shadow: 0px 2px 4px rgb(0 0 0 / 50%);
+    font-family: Brutal_Bold,sans-serif;
+    margin-bottom: 0;
+    position: static;
+    color: var(--clr-primary-2);
+    font-weight: bold;
+}
+
+.released{
+    margin: 6px;
+    font-size: 0.7rem;
+    color: white;
+}
+.description-game{
+    margin: 12px 0;
+    border:  none;
+    background-color: transparent;
+    padding: 6px;
+    font-size: 0.8rem;
+    border-radius: 8px;
+    box-shadow: 0 0 5px 1px rgba(238, 232, 240, 0.4);
+}
+.description-game p{
+    text-align: justify;
+    color: var(--clr-grey-10);
+    margin: 6px 0;
+    font-family: sans-serif;
+    }
+    .description-game p:nth-child(1){
+    font-weight: bold;
+    }
+.stores-genres-game{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    gap: 6px;
+}
+
+.stores-genres-game div{
+    display: flex;
+    flex-direction: row;
+    gap: 6px;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+
+} 
+
+.stores-genres-game div h5 {
+    font-size: 1rem;
+    background-color: var(--clr-primary-4);
+    padding: 4px;
+    border-radius: 4px;
+    text-align: center;
+}
+
+@media all and (min-width: 480px) and (max-width: 768px) { 
+
+    .game-id div img{
+        height: 400px;
+    }
+    .released{
+        font-size: 0.9rem;
+    }
+    .contain-rating-name p,
+    .contain-rating-name h1,
+    .description-game, .stores-genres-game div h5
+    {
+        font-size: 1.1rem;
+    }
+}
+
+@media all and (min-width: 768px) and (max-width: 1024px) { 
+    .game-id div img{
+        height: 600px;
+        width: 100%;
+        max-width: 100%;
+    }
+    .released{
+        font-size: 1rem;
+    }
+    .contain-rating-name p,
+    .contain-rating-name h1,
+    .description-game, .stores-genres-game div h5
+    {
+        font-size: 1.2rem;
+    }
+}
+
+@media all and (min-width: 1024px) { 
+    .game-id * {
+        max-width: 100%;
+    }
+    .game-id div img{
+        height: 800px;
+        width: 100%;
+        max-width: 100%;
+    }
+    .released{
+        font-size: 1.1rem;
+    }
+
+    .description-game, .stores-genres-game div h5
+    {
+        font-size: 1.3rem;
+    }
+    .contain-rating-name p,
+    .contain-rating-name h1{
+        font-size: 1.4rem;
+
+    }
+}

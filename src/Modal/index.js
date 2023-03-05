@@ -6,6 +6,7 @@ import { NavTitleLogo } from '../NavTitleLogo';
 import './Modal.css';
 
 function Modal(){
+
 	return ReactDOM.createPortal(
 		<div className="ModalBackground">
 			<NavTitleLogo className='modal-header'></NavTitleLogo>

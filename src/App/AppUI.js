@@ -13,6 +13,7 @@ import { PlatformsContainer } from '../PlatformsContainer';
 import { UpcomingContainer } from '../UpcomingContainer';
 import { ModalByGame } from '../Modal/modalByGame';
 import { GameContain} from '../GameDetail';
+import { Link } from 'react-router-dom';
 
 const LazyGameCard = lazy(() => import('../GameCard'));
 const LazyNewsImage = lazy(()=> import ('../NewsCard'));
@@ -28,6 +29,7 @@ function AppUI() {
 		openModalByGame,
 		setOpenModalByGame,
 		gameById,
+		goPages
 
 	} = React.useContext(GameContext);
 
@@ -41,11 +43,11 @@ function AppUI() {
 			<GenresContainer>
 				{genres && genres.map(genre =>(
 
-					<GenreCard
-						key={genre.id}
-						name = {genre.name}
-						genreName = {genre.name}
-					/>
+					<Link key={genre.id} to='/genres' onClick={goPages}>
+						<GenreCard 
+							genreName= {genre.name}
+							name={genre.name} />
+					</Link>
 				))
 				}
 			</GenresContainer>

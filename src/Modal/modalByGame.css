@@ -1,13 +1,26 @@
 .modalBackground-Game{
-    background: rgba(32, 35, 41, .9);
+    background: rgba(32, 35, 41, .97);
     position: fixed;
-    top: 5%;
-    left: 6%;
-    right: 6%;
-    bottom: -10px;
+    top: 0%;
+    left: 0%;
+    right: 0%;
+    bottom: 0%;
     display: flex;
     justify-content: center;
-    align-items: center;
     color: white;
     z-index: 5;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
 }
+
+.modalBackground-Game::-webkit-scrollbar {
+    width: 4px;
+    background-color: var(--clr-grey-9);
+  }
+  
+  .modalBackground-Game::-webkit-scrollbar-thumb {
+    background-color: #fb25cf;
+    border-radius: 4px;
+  }

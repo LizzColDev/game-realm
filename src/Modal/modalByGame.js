@@ -5,6 +5,8 @@ import { GameContain} from '../GameDetail';
 import './modalByGame.css';
 
 function ModalByGame(){
+	document.body.style.overflow = 'hidden';
+
 	return ReactDOM.createPortal(
 		<div className="modalBackground-Game">
 			<GameContain/>	

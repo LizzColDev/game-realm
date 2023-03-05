@@ -18,7 +18,7 @@
     white-space: nowrap;
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
-    height: 60%;
+    height: 70%;
 }
 .genres-contain::-webkit-scrollbar {
     width: 4px; /* Ancho de la barra de scroll */

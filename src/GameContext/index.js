@@ -30,12 +30,20 @@ function GameProvider(props){
 
 	function goPages(e) {
 		const name = e.target.textContent.toLowerCase();
+
 		const nameJoined = () =>{
 			const words = name.split(' ');
 			return words.length > 1 ? words.join('-') : name;
 		};
 		getPage(nameJoined);
 	}
+
+	if(openModal || openModalByGame){
+		document.body.style.overflow = 'hidden';
+	}else{
+		document.body.style.overflow = 'auto';
+	}
+	
 	return(
 		<GameContext.Provider value={{
 			games, 

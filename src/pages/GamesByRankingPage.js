@@ -6,6 +6,8 @@ import './styles.css';
 //pend infinite scrolling
 
 function GamesByRankingPage(props){
+	document.body.style.overflow = 'auto';
+
 	return(
 		<div className='pages-container'>
 			<div>Games by Ranking</div>
