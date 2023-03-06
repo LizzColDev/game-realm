@@ -1,12 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './styles.css';
+import { BackBtn } from '../BackBtn';
 
 function GamesByUpcomingPage(props){
 	document.body.style.overflow = 'auto';
 
 	return(<div className='pages-container'>
-		<h1>Upcoming Games</h1>
+		<div>
+			<BackBtn/>
+			<h1>Upcoming Games</h1>
+
+		</div>
 		<div className='page-contain-img' >
 			{props.children}
 		</div>

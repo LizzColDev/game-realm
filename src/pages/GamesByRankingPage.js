@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './styles.css';
+import { BackBtn } from '../BackBtn';
 
 
 //pend infinite scrolling
@@ -10,7 +11,10 @@ function GamesByRankingPage(props){
 
 	return(
 		<div className='pages-container'>
-			<h1>Games by Ranking</h1>
+			<div>
+				<BackBtn/>
+				<h1>Games by Ranking</h1>
+			</div>
 			<div className='page-contain-img' >
 				{props.children}
 			</div>

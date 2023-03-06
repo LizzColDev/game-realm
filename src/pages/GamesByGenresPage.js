@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './styles.css';
+import { BackBtn } from '../BackBtn';
 
 
 function GamesByGenresPage(props){
@@ -8,7 +9,11 @@ function GamesByGenresPage(props){
 
 	return(
 		<div className='pages-container'>
-			<h1>{props.name} Games</h1>
+			<div>
+				<BackBtn/>
+				<h1>{props.name} Games</h1>
+			</div>
+			
 			<div className='page-contain-img' >
 				{props.children}
 			</div>
