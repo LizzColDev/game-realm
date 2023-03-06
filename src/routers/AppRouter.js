@@ -22,7 +22,8 @@ function AppRouter(){
 		page, 
 		setOpenModalByGame, 
 		openModalByGame, 
-		gameById 
+		gameById, 
+		popularGames, 
 	} = React.useContext(GameContext);
 	return(
 		// eslint-disable-next-line react/react-in-jsx-scope
@@ -50,6 +51,7 @@ function AppRouter(){
 						<Suspense key={game.id} fallback={<div>Cargando...</div>}>
 							<LazyGameCard
 								className='pages'
+								id={game.id}
 
 								key={game.id}
 								name={game.name}
@@ -59,7 +61,21 @@ function AppRouter(){
 		  </Suspense>
 					))}	
 				</GamesByRankingPage>} />
-					
+				<Route path='/populars' element={<GamesByRankingPage>
+					{popularGames && popularGames.map(game =>(
+						<Suspense key={game.id} fallback={<div>Cargando...</div>}>
+							<LazyGameCard
+								className='pages'
+								id={game.id}
+
+								key={game.id}
+								name={game.name}
+								src={game.background_image}
+							/>
+						
+		  </Suspense>
+					))}	
+				</GamesByRankingPage>} />
 				<Route path='/platforms' element={<GamesByPlatformsPage />} />
 					
 				<Route path='/upcoming' element={<GamesByUpcomingPage>
@@ -67,6 +83,7 @@ function AppRouter(){
 						<Suspense key={game.id} fallback={<div className="skeleton">Cargando...</div>}>
 							<LazyGameCard  key={game.id}
 								className='pages'
+								id={game.id}
 
 								name={game.name}
 								src={game.background_image

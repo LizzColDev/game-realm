@@ -9,7 +9,7 @@ function usePlatformsGames(){
 		async function getPlatforms() {
 			try{
 				const {data} = await API_RAWG.get('platforms', {
-					params: {'page_size': '6'}
+					params: {'page_size': '20'}
 				});
 				setPlatforms(data.results);
 			} catch(error){

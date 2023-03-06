@@ -14,6 +14,7 @@ import { UpcomingContainer } from '../UpcomingContainer';
 import { ModalByGame } from '../Modal/modalByGame';
 import { GameContain} from '../GameDetail';
 import { Link } from 'react-router-dom';
+import { PopularContainer } from '../PopularContainer';
 
 const LazyGameCard = lazy(() => import('../GameCard'));
 const LazyNewsImage = lazy(()=> import ('../NewsCard'));
@@ -29,7 +30,8 @@ function AppUI() {
 		openModalByGame,
 		setOpenModalByGame,
 		gameById,
-		goPages
+		goPages,
+		popularGames,
 
 	} = React.useContext(GameContext);
 
@@ -66,6 +68,21 @@ function AppUI() {
 		  </Suspense>
 				))}
 			</RankingContainer>
+			<PopularContainer>
+
+				{popularGames && popularGames.map(game =>(
+					<Suspense key={game.id} fallback={<div>Cargando...</div>}>
+						<LazyGameCard
+							className='ranking-img'
+							id={game.id}
+							name={game.name}
+							src={game.background_image}
+							setOpenModalByGame={setOpenModalByGame}
+						/>
+
+					</Suspense>
+				))}
+			</PopularContainer>
 			<UpcomingContainer>
 				{upComing && upComing.map(game =>(
 					<Suspense key={game.id} fallback={<div className="skeleton">Cargando...</div>}>
@@ -80,12 +97,14 @@ function AppUI() {
 		  </Suspense>
 				))}
 			</UpcomingContainer>
-			<PlatformsContainer>
-				{platforms && platforms.map(game =>(
-					<Suspense key={game.id} fallback={<div className="skeleton">Cargando...</div>}>
-						<LazyGameCard className='platforms-img' name={game.name} src={game.image_background} />
 
-		  </Suspense>
+			<PlatformsContainer>
+				{platforms && platforms.map(platforms =>(
+					<Link key={platforms.id} to='/genres' onClick={goPages}>
+						<GenreCard 
+							genreName= {platforms.name}
+							name={platforms.name} />
+					</Link>
 				))}
 			</PlatformsContainer>
 			<NewsContainer>

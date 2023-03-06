@@ -7,11 +7,14 @@ import { usePlatformsGames } from './usePlatformsGames';
 import { useUpcoming } from './useUpcomingGames';
 import {useGamesByGenre} from './useGamesByGenre';
 import { useGameById } from './useGameById';
+import { usePopularGames } from './usePopularGames';
 
 const GameContext = createContext();
 
 function GameProvider(props){
 	const {games} = useGameRanking();
+	const {popularGames} = usePopularGames();
+
 	const {genres} = useGenres();
 	const {gamesNews} = useGamesNews();
 	const {platforms} = usePlatformsGames();
@@ -54,6 +57,7 @@ function GameProvider(props){
 			setOpenModalByGame,
 			gameById,
 			getId,
+			popularGames
 		}}>
 			{props.children}
 		</GameContext.Provider>

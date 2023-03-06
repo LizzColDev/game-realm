@@ -6,11 +6,9 @@ import './PlatformsContainer.css';
 function PlatformsContainer(props){
 	return(
 		<> 
-			<section id='platforms'>
-				<div className='dlc-header'>
-					<h2 className='dlc-title'>Platforms</h2>
-				</div>
-				<article className='search-contain'>
+			<section className='genres-container' id='genres'>
+				<h2 className='genres-title'>Platforms</h2>
+				<article className='genres-contain'>
 					{props.children}
 				</article>
 			</section>
