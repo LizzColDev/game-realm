@@ -16,15 +16,21 @@
 }
 
 .links-nav {
-   height: 0;
+  width: 100%;
   overflow: hidden;
   transition: var(--transition); 
+  height: auto;
+  display: none;
+  justify-content: center;
+  border-top: 2px solid rgba(255, 255, 255, 0.15);
 }
+
 .show-links {
   height: 10rem;
 }
 
 .modal-links {
+  margin-top: 120px;
   width: 90%;
   height: auto;
   display: flex;
@@ -51,7 +57,7 @@
   display: inline-block;
   background-color: transparent;
   padding: 1rem 1rem;
-  font-size: 20px;
+  font-size: 0.8rem;
   color: aliceblue;
   border: none;
   border-bottom: solid 1px var(--clr-grey-7);
@@ -65,16 +71,26 @@
 .show-links {
   height: 10rem;
 }
-
-@media screen and (min-width: 950px) {
-    
-    .links-nav {
-      height: auto;
-      display: flex;
-    }
-    .modal-links {
-      display: none;
-    }
+@media all and (min-width: 480px) and (max-width: 768px) {
+  .modal-links li a{
+    font-size: 1.1rem;
   }
-
-
+ }
+ @media all and (min-width: 768px){ 
+  .links-nav li a{
+    font-size: 1.2rem;
+    text-align: center;
+  }
+  .links-nav {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding-top: 6px;
+  }
+ }
+ 
+ @media all and (min-width: 1024px){
+  .links-nav li a{
+    font-size: 1.3rem;
+  }
+ }

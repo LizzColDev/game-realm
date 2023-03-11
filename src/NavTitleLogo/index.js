@@ -3,20 +3,23 @@ import './NavTitleLogo.css';
 import PropTypes from 'prop-types';
 import { ToogleMenuButton } from '../ToogleMenuButton';
 import { GameContext } from '../GameContext';
-
+import { SearchForm } from '../SearchForm';
 
 function NavTitleLogo({className}){
 	const {setOpenModal} = React.useContext(GameContext);
 	return(
 		<>
-			<div className={className}>
-				<img src="https://cdn-icons-png.flaticon.com/512/7205/7205615.png" className="logo" alt="logo" />
-				<h1 className='title'>Game World</h1>
+			<section className={className}>
+				<div className='title-logo-container'>
+					<img src="https://cdn-icons-png.flaticon.com/512/7205/7205615.png" className="logo" alt="logo" />
+					<h1 className='title'>Game World</h1>
+				</div>
 
+				<SearchForm/>
 				<ToogleMenuButton
 					setOpenModal={setOpenModal}
 				/>
-			</div>
+			</section>
 		</>
 	);
 }

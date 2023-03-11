@@ -7,10 +7,8 @@ function NavHeader(){
 	return(
 		<>
 			<nav>
-				<div className="nav-center">
-					<NavTitleLogo className='nav-header'/>
-					<NavList className='links-nav'  />
-				</div>
+				<NavTitleLogo className='nav-header'/>
+				<NavList className='links-nav'  />
 			</nav>
 		</>
 	);

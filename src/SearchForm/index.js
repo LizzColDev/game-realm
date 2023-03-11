@@ -1,21 +1,13 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-
 import './SearchForm.css';
 
-function SearchForm(props){
+function SearchForm(){
 	return(
-		<form className='formContainSearch'>
-			<div className='searchContain'>
-				{props.children}
-				<button className='btn btn-search'>🔍</button>
-			</div>
-			
+		<form className='form-searchContain'>
+			<input className='inputSearchGame' placeholder='Find your Game' />
+			<button className='btn btn-search'>🔍</button>
 		</form>
 	);
 }
 
-SearchForm.propTypes = {
-	children: PropTypes.node.isRequired,
-};
 export {SearchForm};

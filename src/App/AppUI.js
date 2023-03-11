@@ -1,13 +1,11 @@
 import React, {lazy, Suspense}  from 'react';
 import { NavHeader } from '../NavHeader';
 import { RankingContainer } from '../RankingContainer';
-import { SearchForm } from '../SearchForm';
-import {InputSearchGame} from '../InputForm';
 import './App.css';
 import { GameContext } from '../GameContext';
 import { GenresContainer } from '../GenresContainer';
 import { GenreCard } from '../GenreCard';
-import { NewsContainer } from '../NewsContainer';
+// import { NewsContainer } from '../NewsContainer';
 import { Modal } from '../Modal';
 import { PlatformsContainer } from '../PlatformsContainer';
 import { UpcomingContainer } from '../UpcomingContainer';
@@ -17,13 +15,13 @@ import { Link } from 'react-router-dom';
 import { PopularContainer } from '../PopularContainer';
 
 const LazyGameCard = lazy(() => import('../GameCard'));
-const LazyNewsImage = lazy(()=> import ('../NewsCard'));
+// const LazyNewsImage = lazy(()=> import ('../NewsCard'));
 
 function AppUI() {
 	const {
 		games,
 		genres,
-		gamesNews,
+		// gamesNews,
 		openModal,
 		platforms,
 		upComing,
@@ -38,10 +36,6 @@ function AppUI() {
 	return (
 		<>
 			<NavHeader />
-
-			<SearchForm>
-				<InputSearchGame/>
-			</SearchForm>
 			<GenresContainer>
 				{genres && genres.map(genre =>(
 
@@ -107,7 +101,7 @@ function AppUI() {
 					</Link>
 				))}
 			</PlatformsContainer>
-			<NewsContainer>
+			{/* <NewsContainer>
 				{gamesNews && gamesNews.map(game =>(
 					<Suspense key={game.title} fallback={<div className="skeleton">Cargando...</div>}>
 						<LazyNewsImage							
@@ -121,7 +115,7 @@ function AppUI() {
 
 				))}
 
-			</NewsContainer>
+			</NewsContainer> */}
 			{!!openModal && (
 				<Modal>
 
