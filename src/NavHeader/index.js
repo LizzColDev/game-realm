@@ -5,11 +5,13 @@ import './styles.css';
 
 function NavHeader(){
 	return(
-		<>
+		<><header>
 			<nav>
 				<NavTitleLogo className='nav-header'/>
 				<NavList className='links-nav'  />
 			</nav>
+		</header>
+
 		</>
 	);
 }

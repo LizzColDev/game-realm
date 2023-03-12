@@ -5,9 +5,9 @@ import { Link } from 'react-router-dom';
 
 function PopularContainer(props){
 	return(
-		<section className='rankingGames-container' id='ranking'>
-			<div className='ranking-header'>
-				<h2 className='ranking-title'>Most Popular</h2>
+		<section className='games-preview-container' id='popular'>
+			<div className='preview-header'>
+				<h2 className='preview-title'>Most Popular</h2>
 				<Link to={'/populars'}>
 					<button className='ranking-btn btn'>See more</button>
 

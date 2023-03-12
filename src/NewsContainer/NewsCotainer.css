@@ -1,5 +1,6 @@
 .news-container {
     margin-top: 12px;
+    width: 70%;
 }
 
 .news-header{
@@ -23,7 +24,6 @@
   @media screen and (min-width: 950px) {
     .news-container {
       margin-top: 24px;
-      
   }
   .news-title{
     font-size: 2rem;

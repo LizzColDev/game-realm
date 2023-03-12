@@ -1,34 +1,36 @@
 import React, {lazy, Suspense}  from 'react';
 import { NavHeader } from '../NavHeader';
-import { RankingContainer } from '../RankingContainer';
+// import { RankingContainer } from '../RankingContainer';
 import './App.css';
 import { GameContext } from '../GameContext';
-import { GenresContainer } from '../GenresContainer';
-import { GenreCard } from '../GenreCard';
-// import { NewsContainer } from '../NewsContainer';
+// import { GenresContainer } from '../GenresContainer';
+// import { GenreCard } from '../GenreCard';
+import { NewsContainer } from '../NewsContainer';
 import { Modal } from '../Modal';
-import { PlatformsContainer } from '../PlatformsContainer';
+// import { PlatformsContainer } from '../PlatformsContainer';
 import { UpcomingContainer } from '../UpcomingContainer';
 import { ModalByGame } from '../Modal/modalByGame';
 import { GameContain} from '../GameDetail';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import { PopularContainer } from '../PopularContainer';
+import { MainContain } from '../MainContain';
+import { SectionNewsUpcoming } from '../SectionNewsUpcoming';
 
 const LazyGameCard = lazy(() => import('../GameCard'));
-// const LazyNewsImage = lazy(()=> import ('../NewsCard'));
+const LazyNewsImage = lazy(()=> import ('../NewsCard'));
 
 function AppUI() {
 	const {
-		games,
-		genres,
-		// gamesNews,
+		// games,
+		// genres,
+		gamesNews,
 		openModal,
-		platforms,
+		// platforms,
 		upComing,
 		openModalByGame,
 		setOpenModalByGame,
 		gameById,
-		goPages,
+		// goPages,
 		popularGames,
 
 	} = React.useContext(GameContext);
@@ -36,18 +38,54 @@ function AppUI() {
 	return (
 		<>
 			<NavHeader />
-			<GenresContainer>
-				{genres && genres.map(genre =>(
 
-					<Link key={genre.id} to='/genres' onClick={goPages}>
-						<GenreCard 
-							genreName= {genre.name}
-							name={genre.name} />
-					</Link>
-				))
-				}
-			</GenresContainer>
-			<RankingContainer>
+			<MainContain>
+				<PopularContainer className='most-popular-preview'>
+					{popularGames && popularGames.map(game =>(
+						<Suspense key={game.id} fallback={<div>Cargando...</div>}>
+							<LazyGameCard
+								className='ranking-img'
+								id={game.id}
+								name={game.name}
+								src={game.background_image}
+								setOpenModalByGame={setOpenModalByGame}
+							/>
+						</Suspense>
+					))}
+				</PopularContainer>
+
+				<SectionNewsUpcoming>
+					<NewsContainer>
+						{gamesNews && gamesNews.map(game =>(
+							<Suspense key={game.title} fallback={<div className="skeleton">Cargando...</div>}>
+								<LazyNewsImage							
+									name={game.title}
+									src={game.image}
+									url={game.link}
+									date={game.date}
+									description={game.description}
+								/>
+							</Suspense>
+						))}
+					</NewsContainer>
+					<UpcomingContainer>
+						{upComing && upComing.map(game =>(
+							<Suspense key={game.id} fallback={<div className="skeleton">Cargando...</div>}>
+								<LazyGameCard
+									className='upcoming-img'
+									id={game.id}
+									name={game.name}
+									src={game.background_image}
+									setOpenModalByGame={setOpenModalByGame}
+								/>
+
+		  </Suspense>
+						))}
+					</UpcomingContainer>
+				</SectionNewsUpcoming>
+				
+			</MainContain>
+			{/* <RankingContainer>
 
 				{games && games.map(game =>(
 					<Suspense key={game.id} fallback={<div>Cargando...</div>}>
@@ -61,38 +99,11 @@ function AppUI() {
 
 		  </Suspense>
 				))}
-			</RankingContainer>
-			<PopularContainer>
+			</RankingContainer> */}
 
-				{popularGames && popularGames.map(game =>(
-					<Suspense key={game.id} fallback={<div>Cargando...</div>}>
-						<LazyGameCard
-							className='ranking-img'
-							id={game.id}
-							name={game.name}
-							src={game.background_image}
-							setOpenModalByGame={setOpenModalByGame}
-						/>
 
-					</Suspense>
-				))}
-			</PopularContainer>
-			<UpcomingContainer>
-				{upComing && upComing.map(game =>(
-					<Suspense key={game.id} fallback={<div className="skeleton">Cargando...</div>}>
-						<LazyGameCard
-							className='upcoming-img'
-							id={game.id}
-							name={game.name}
-							src={game.background_image}
-							setOpenModalByGame={setOpenModalByGame}
-						/>
 
-		  </Suspense>
-				))}
-			</UpcomingContainer>
-
-			<PlatformsContainer>
+			{/* <PlatformsContainer>
 				{platforms && platforms.map(platforms =>(
 					<Link key={platforms.id} to='/genres' onClick={goPages}>
 						<GenreCard 
@@ -100,25 +111,21 @@ function AppUI() {
 							name={platforms.name} />
 					</Link>
 				))}
-			</PlatformsContainer>
-			{/* <NewsContainer>
-				{gamesNews && gamesNews.map(game =>(
-					<Suspense key={game.title} fallback={<div className="skeleton">Cargando...</div>}>
-						<LazyNewsImage							
-							name={game.title}
-							src={game.image}
-							url={game.link}
-							date={game.date}
-							description={game.description}
-						/>
-					</Suspense>
+			</PlatformsContainer> */}
 
-				))}
-
-			</NewsContainer> */}
 			{!!openModal && (
 				<Modal>
+					{/* <GenresContainer>
+						{genres && genres.map(genre =>(
 
+							<Link key={genre.id} to='/genres' onClick={goPages}>
+								<GenreCard 
+									genreName= {genre.name}
+									name={genre.name} />
+							</Link>
+						))
+						}
+					</GenresContainer> */}
 				</Modal>
 			)}
 			
