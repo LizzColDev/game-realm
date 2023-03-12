@@ -1,7 +1,8 @@
 .upcoming-container {
+  display: none;
   padding-left: 6px;
   margin-top: 12px;
-  background-image: url('https://img.freepik.com/free-vector/space-game-background-neon-night-alien-landscape_107791-1624.jpg?w=1380&t=st=1676606079~exp=1676606679~hmac=fdb55e04e2cc0eb13d82779087a7f57850c2a36b05ff3138bb8d91f38ee5e4a5');
+  background-image: url('https://img.freepik.com/free-vector/christmas-sparkling-particles-wallpaper_23-2148342939.jpg?w=1060&t=st=1678639768~exp=1678640368~hmac=13ad3751710c6c58d1ad311efdb3a14a94738fddc94428142f4b1abf48f122cd');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -51,25 +52,13 @@ text-align: center;
   background-color: #fb25cf; /* Color de la barra de scroll */
 }
 
-@media screen and (min-width: 950px) {
-  /* .upcoming-container {
-    margin-top: 24px;
-    height: 320px;
-    box-shadow: 0px 0px 20px 8px rgb(0 0 0 / 50%);
-}
-.upcoming-title{
-  font-size: 2rem;
-}
-.upcoming-header{
-    padding: 12px 24px;
-}
-.upcoming-contain  {
-    height: 250px;
+@media screen and (min-width: 768px) {
+  .upcoming-title{
+    font-size: 1.4rem;
+    margin-bottom: 6px;
+  }
+  .upcoming-container {
+    display: block;
   }
 
-.upcoming-btn{
-    border-radius: 8px;
-    height: 32px;
-    width: 120px;
-} */
 }
