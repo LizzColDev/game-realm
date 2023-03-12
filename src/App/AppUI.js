@@ -17,13 +17,13 @@ import { MainContain } from '../MainContain';
 import { SectionNewsUpcoming } from '../SectionNewsUpcoming';
 
 const LazyGameCard = lazy(() => import('../GameCard'));
-const LazyNewsImage = lazy(()=> import ('../NewsCard'));
+// const LazyNewsImage = lazy(()=> import ('../NewsCard'));
 
 function AppUI() {
 	const {
 		// games,
 		// genres,
-		gamesNews,
+		// gamesNews,
 		openModal,
 		// platforms,
 		upComing,
@@ -32,6 +32,7 @@ function AppUI() {
 		gameById,
 		// goPages,
 		popularGames,
+		gamesBySearch
 
 	} = React.useContext(GameContext);
 
@@ -56,15 +57,17 @@ function AppUI() {
 
 				<SectionNewsUpcoming>
 					<NewsContainer>
-						{gamesNews && gamesNews.map(game =>(
-							<Suspense key={game.title} fallback={<div className="skeleton">Cargando...</div>}>
-								<LazyNewsImage							
-									name={game.title}
-									src={game.image}
-									url={game.link}
-									date={game.date}
-									description={game.description}
+						{gamesBySearch && gamesBySearch.map(game =>(
+
+							<Suspense key={game.id} fallback={<div className="skeleton">Cargando...</div>}>
+								<LazyGameCard
+									className='upcoming-img'
+									id={game.id}
+									name={game.name}
+									src={game.background_image}
+									setOpenModalByGame={setOpenModalByGame}
 								/>
+
 							</Suspense>
 						))}
 					</NewsContainer>
@@ -115,17 +118,7 @@ function AppUI() {
 
 			{!!openModal && (
 				<Modal>
-					{/* <GenresContainer>
-						{genres && genres.map(genre =>(
 
-							<Link key={genre.id} to='/genres' onClick={goPages}>
-								<GenreCard 
-									genreName= {genre.name}
-									name={genre.name} />
-							</Link>
-						))
-						}
-					</GenresContainer> */}
 				</Modal>
 			)}
 			

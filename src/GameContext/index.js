@@ -8,26 +8,30 @@ import { useUpcoming } from './useUpcomingGames';
 import {useGamesByGenre} from './useGamesByGenre';
 import { useGameById } from './useGameById';
 import { usePopularGames } from './usePopularGames';
+import { useGamesBySearch } from './useGamesBySearch';
 
 const GameContext = createContext();
 
 function GameProvider(props){
+	const[query, setQuery] = useState('');
+	const [id, setId] = useState(null);
+	const [page, setPage] = useState('');
+	const[openModalByGame, setOpenModalByGame] = useState(false);
+
+
 	const {games} = useGameRanking();
 	const {popularGames} = usePopularGames();
-
+	const {gamesBySearch} = useGamesBySearch(query);
 	const {genres} = useGenres();
 	const {gamesNews} = useGamesNews();
 	const {platforms} = usePlatformsGames();
 	const[openModal, setOpenModal] = useState(false);
-	const[openModalByGame, setOpenModalByGame] = useState(false);
 	const {upComing} = useUpcoming();
-	const [id, setId] = useState(null);
-	const getId = (select) =>setId(select);
 	
 	const {gameById} = useGameById(id);
-	const [page, setPage] = useState('');
 
 	const getPage = (select) =>setPage(select);
+	const getId = (select) =>setId(select);
 
 	const {gamesByGenre} = useGamesByGenre(page);
 
@@ -41,6 +45,8 @@ function GameProvider(props){
 		getPage(nameJoined);
 	}
 	
+
+ 
 	return(
 		<GameContext.Provider value={{
 			games, 
@@ -57,7 +63,9 @@ function GameProvider(props){
 			setOpenModalByGame,
 			gameById,
 			getId,
-			popularGames
+			popularGames,
+			gamesBySearch,
+			setQuery
 		}}>
 			{props.children}
 		</GameContext.Provider>
