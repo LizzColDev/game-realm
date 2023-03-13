@@ -93,7 +93,7 @@ cursor: pointer;
 }
 
 section[id]{
-  scroll-margin-top: 120px ;
+  scroll-margin-top: 160px ;
 }
 .game-container {
   position: relative;

@@ -3,15 +3,15 @@ import { NavHeader } from '../NavHeader';
 // import { RankingContainer } from '../RankingContainer';
 import './App.css';
 import { GameContext } from '../GameContext';
-// import { GenresContainer } from '../GenresContainer';
-// import { GenreCard } from '../GenreCard';
+import { GenresContainer } from '../GenresContainer';
+import { GenreCard } from '../GenreCard';
 import { NewsContainer } from '../NewsContainer';
 import { Modal } from '../Modal';
 // import { PlatformsContainer } from '../PlatformsContainer';
 import { UpcomingContainer } from '../UpcomingContainer';
 import { ModalByGame } from '../Modal/modalByGame';
 import { GameContain} from '../GameDetail';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { PopularContainer } from '../PopularContainer';
 import { MainContain } from '../MainContain';
 import { SectionNewsUpcoming } from '../SectionNewsUpcoming';
@@ -22,7 +22,7 @@ const LazyGameCard = lazy(() => import('../GameCard'));
 function AppUI() {
 	const {
 		// games,
-		// genres,
+		genres,
 		// gamesNews,
 		openModal,
 		// platforms,
@@ -30,7 +30,7 @@ function AppUI() {
 		openModalByGame,
 		setOpenModalByGame,
 		gameById,
-		// goPages,
+		goPages,
 		popularGames,
 		gamesBySearch
 
@@ -41,6 +41,15 @@ function AppUI() {
 			<NavHeader />
 
 			<MainContain>
+				<GenresContainer>
+					{genres && genres.map(genre =>(
+						<Link key={genre.id} to='/genres' onClick={goPages}>
+							<GenreCard 
+								genreName= {genre.name}
+								name={genre.name} />
+						</Link>
+					))}
+				</GenresContainer>
 				<PopularContainer className='most-popular-preview'>
 					{popularGames && popularGames.map(game =>(
 						<Suspense key={game.id} fallback={<div>Cargando...</div>}>
@@ -106,15 +115,7 @@ function AppUI() {
 
 
 
-			{/* <PlatformsContainer>
-				{platforms && platforms.map(platforms =>(
-					<Link key={platforms.id} to='/genres' onClick={goPages}>
-						<GenreCard 
-							genreName= {platforms.name}
-							name={platforms.name} />
-					</Link>
-				))}
-			</PlatformsContainer> */}
+
 
 			{!!openModal && (
 				<Modal>

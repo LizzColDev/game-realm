@@ -7,7 +7,7 @@ function useGenres(){
 	useEffect(() =>{
 		async function getGenres() {
 			try{
-				const {data} = await API_RAWG.get('games/28/reddit', {});	
+				const {data} = await API_RAWG.get('genres', {});	
 				setGenres(data.results);
 			} catch(error){
 				console.error(error);

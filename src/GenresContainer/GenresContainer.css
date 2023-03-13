@@ -1,5 +1,8 @@
 .genres-container {
-    height: 100px;
+    height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: height 0.5s ease, opacity 0.5s ease;
     margin-top: 6px;
     padding-left: 0.6rem;
     background-image: url('https://media.istockphoto.com/id/1170275727/es/vector/icono-de-fondo-de-patr%C3%B3n-vectorial-sin-costuras.jpg?s=612x612&w=0&k=20&c=PbVnD4P1ejlvZDu5DoIJHDjIgOGPM3vf4jRDSSrI1HA=');
@@ -8,6 +11,15 @@
     background-position: center;
     outline: 4px ridge rgba(170, 50, 220, .6);
 }
+
+.genres-container.show {
+margin-bottom: 12px;
+    
+    height: auto;
+    opacity: 1;
+    overflow: visible;
+  }
+
 .genres-contain {
     display: flex;
     flex-wrap: wrap;

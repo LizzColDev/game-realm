@@ -5,11 +5,11 @@ import { GameContext } from '../GameContext';
 
 
 function NavList({ className }) {
-	const { setOpenModal } = React.useContext(GameContext);
+	const { setOpenModal, setIsActive } = React.useContext(GameContext);
 
 	const onClickButton = () => {
 		setOpenModal(prevState => !prevState);
-
+		setIsActive(prevState => !prevState);
 	};
 	return(
 		<>
