@@ -122,10 +122,22 @@ section[id]{
   cursor: pointer;
   filter: brightness(0.6);
  }
+ .skeleton, .loading-card {
+  background-color: #f0f0f0;
+  animation: loading 0.5s ease-in-out infinite alternate;
+}
 
+@keyframes loading {
+  from {
+    background-color: #f0f0f0;
+  }
+  to {
+    background-color: #939393;
+  }
+}
 
 @media screen and (min-width: 950px) {
-  .skeleton {
+  .skeleton, .loading-card {
     background-color: #f0f0f0;
     animation: loading 0.5s ease-in-out infinite alternate;
   }

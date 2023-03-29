@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 function ToogleMenuButton(props){
 	const onClickButton = () => {
 		props.setOpenModal(prevState => !prevState);
+		props.setOpenModalList(false);
 	};
 	return(
 		<>
@@ -19,7 +20,8 @@ function ToogleMenuButton(props){
 }
 
 ToogleMenuButton.propTypes = {
-	setOpenModal: PropTypes.func.isRequired
+	setOpenModal: PropTypes.func.isRequired,
+	setOpenModalList: PropTypes.func.isRequired
 };
   
 export {ToogleMenuButton};

@@ -1,38 +1,21 @@
 import React from 'react';
 import './NavList.css';
 import PropTypes from 'prop-types';
-import { GameContext } from '../GameContext';
+// import { GameContext } from '../GameContext';
 
 
-function NavList({ className }) {
-	const { setOpenModal, setIsActive } = React.useContext(GameContext);
+function NavList(props) {
+	// const { setOpenModal, setIsActive } = React.useContext(GameContext);
 
-	const onClickButton = () => {
-		setOpenModal(prevState => !prevState);
-		setIsActive(prevState => !prevState);
-	};
+	// const onClickButton = () => {
+	// 	setOpenModal(prevState => !prevState);
+	// 	setIsActive(prevState => !prevState);
+	// };
 	return(
 		<>
-			<ul className={className}>
-				<li>
-					<a href='#genres' onClick={onClickButton}>Genres</a>
-				</li>
-				<li>
-					<a href='#ranking' onClick={onClickButton}>Ranking</a>
-				</li>
-				<li>
-					<a href='#upcoming' onClick={onClickButton}>Upcoming Games</a>
-				</li>
-				<li>
-					<a href='#platforms'onClick={onClickButton}>Platforms</a>
-				</li>
-				<li>
-					<a href='#news' onClick={onClickButton}>News</a>
-				</li>
-				
-				<li>
-					<a href='#guidesAndTricks' onClick={onClickButton}>Guides and Tricks</a>
-				</li>
+			<ul className={props.className}>
+				{props.loading && props.onLoading()}
+				{props.children}
 			</ul>
 		</>
 	);
@@ -41,9 +24,10 @@ function NavList({ className }) {
 NavList.propTypes = {
 	className: PropTypes.string,
 	setOpenModal: PropTypes.func,
-	scrollToSection: PropTypes.func
-
-
+	scrollToSection: PropTypes.func,
+	children: PropTypes.func,
+	loading: PropTypes.string,
+	onLoading: PropTypes.string,
 };
   
 export {NavList};

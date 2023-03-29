@@ -1,15 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { NavList } from '../NavList';
 
 import './Modal.css';
 
-function Modal(){
+function Modal(props){
 
 	return ReactDOM.createPortal(
-		<div className="ModalBackground">
-			<NavList className='modal-links'/>
-			
+		<div className={props.className}>
+
+			{props.children}
 		</div>,
             
 		document.getElementById('modal')

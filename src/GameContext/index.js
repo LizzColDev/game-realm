@@ -18,7 +18,8 @@ function GameProvider(props){
 	const [page, setPage] = useState('');
 	const[openModalByGame, setOpenModalByGame] = useState(false);
 	const[isActive, setIsActive] = useState(false);
-
+	const [loading, setLoading] = useState(true);
+	const [openModalList, setOpenModalList] = useState(false);
 
 
 	const {games} = useGameRanking();
@@ -46,9 +47,7 @@ function GameProvider(props){
 		};
 		getPage(nameJoined);
 	}
-	
 
- 
 	return(
 		<GameContext.Provider value={{
 			games, 
@@ -69,7 +68,11 @@ function GameProvider(props){
 			gamesBySearch,
 			setQuery,
 			setIsActive,
-			isActive
+			isActive,
+			setLoading,
+			loading,
+			openModalList,
+			setOpenModalList,
 		}}>
 			{props.children}
 		</GameContext.Provider>

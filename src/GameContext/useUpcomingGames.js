@@ -1,8 +1,8 @@
-import { useEffect, useState } from 'react';
+import {  useEffect, useState } from 'react';
+
 import {API_RAWG} from './apiConfig';
 
 function useUpcoming(){
-
 	const [upComing, setUpcoming] = useState([]); 	
 	let currentDate = new Date();
 	let nextYearDate = new Date();
@@ -22,7 +22,7 @@ function useUpcoming(){
 
 
 		getUpcoming();
-		
+
 	}, []);
 
 	return {
