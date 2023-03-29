@@ -1,4 +1,5 @@
 import React from 'react';
+import { MenuList } from '../MenuList';
 import { NavList } from '../NavList';
 import { NavTitleLogo } from '../NavTitleLogo';
 import './styles.css';
@@ -8,7 +9,10 @@ function NavHeader(){
 		<><header>
 			<nav>
 				<NavTitleLogo className='nav-header'/>
-				<NavList className='links-nav'  />
+				
+				<NavList className='links-nav'>
+					<MenuList/>
+				</NavList>
 			</nav>
 		</header>
 

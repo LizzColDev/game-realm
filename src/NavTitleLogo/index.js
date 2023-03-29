@@ -6,7 +6,7 @@ import { GameContext } from '../GameContext';
 import { SearchForm } from '../SearchForm';
 
 function NavTitleLogo({className}){
-	const {setOpenModal} = React.useContext(GameContext);
+	const {setOpenModal, setOpenModalList} = React.useContext(GameContext);
 	return(
 		<>
 			<section className={className}>
@@ -18,6 +18,8 @@ function NavTitleLogo({className}){
 				<SearchForm/>
 				<ToogleMenuButton
 					setOpenModal={setOpenModal}
+					setOpenModalList={setOpenModalList}
+
 				/>
 			</section>
 		</>

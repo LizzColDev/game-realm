@@ -3,7 +3,6 @@ import {API_RAWG} from './apiConfig';
 
 function useGameRanking(){
 	const [games, setGames] = useState([]); 	
-
 	useEffect(() =>{
 		async function getRankingGames() {
 			try{
@@ -18,6 +17,7 @@ function useGameRanking(){
 					
 				});
 				setGames(data.results);
+
 			} catch(error){
 				console.error(error);
 			}
