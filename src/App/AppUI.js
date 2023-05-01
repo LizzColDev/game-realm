@@ -17,13 +17,13 @@ import { MainContain } from '../MainContain';
 import { SectionNewsUpcoming } from '../SectionNewsUpcoming';
 
 const LazyGameCard = lazy(() => import('../GameCard'));
-// const LazyNewsImage = lazy(()=> import ('../NewsCard'));
+const LazyNewsImage = lazy(()=> import ('../NewsCard'));
 
 function AppUI() {
 	const {
 		// games,
 		genres,
-		// gamesNews,
+		gamesNews,
 		openModal,
 		// platforms,
 		upComing,
@@ -32,7 +32,7 @@ function AppUI() {
 		gameById,
 		goPages,
 		popularGames,
-		gamesBySearch
+		// gamesBySearch
 
 	} = React.useContext(GameContext);
 
@@ -66,17 +66,15 @@ function AppUI() {
 
 				<SectionNewsUpcoming>
 					<NewsContainer>
-						{gamesBySearch && gamesBySearch.map(game =>(
-
-							<Suspense key={game.id} fallback={<div className="skeleton">Cargando...</div>}>
-								<LazyGameCard
-									className='upcoming-img'
-									id={game.id}
-									name={game.name}
-									src={game.background_image}
-									setOpenModalByGame={setOpenModalByGame}
+						{gamesNews && gamesNews.map(game =>(
+							<Suspense key={game.title} fallback={<div className="skeleton">Cargando...</div>}>
+								<LazyNewsImage							
+									name={game.title}
+									src={game.urlToImage}
+									url={game.link}
+									date={game.publishedAt}
+									description={game.description}
 								/>
-
 							</Suspense>
 						))}
 					</NewsContainer>
