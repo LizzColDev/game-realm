@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
-import {AddFavoriteButton} from '../LikeButton';
+import {AddFavoriteButton} from '../../components/LikeButton';
 import './GameById.css';
-import { GameContext } from '../GameContext';
+import { GameContext } from '../../App/GameContext';
 import parse from 'html-react-parser';
 import { CloseBtn } from '../CloseBtn';
 import { GenreCard } from '../GenreCard';

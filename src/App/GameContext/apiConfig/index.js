@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {  NEWS_VIDEOGAMES, RAWG_API_KEY } from '../../API_KEY/API_KEY';
+import { NEWS_VIDEOGAMES, RAWG_API_KEY } from '../../../API_KEY/API_KEY';
 
 const URL_RAWG = 'https://api.rawg.io/api/';
 const URL_NEWS_VIDEOGAMES = 'https://videogames-news2.p.rapidapi.com/videogames_news/';

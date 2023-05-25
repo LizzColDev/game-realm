@@ -1,8 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { GameContain} from '../GameDetail';
-
 import './modalByGame.css';
+import { GameContain } from '../GameDetail';
 
 function ModalByGame(){
 	document.body.style.overflow = 'hidden';

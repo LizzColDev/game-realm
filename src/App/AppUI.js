@@ -1,28 +1,28 @@
 import React, {lazy, Suspense}  from 'react';
-import { NavHeader } from '../NavHeader';
+import { NavHeader } from '../components/NavHeader';
 // import { RankingContainer } from '../RankingContainer';
 import './App.css';
-import { GameContext } from '../GameContext';
-import { GenresContainer } from '../GenresContainer';
-import { GenreCard } from '../GenreCard';
-import { NewsContainer } from '../NewsContainer';
-import { Modal } from '../Modal';
+import { GameContext } from './GameContext';
+import { GenresContainer } from '../components/GenresContainer';
+import { GenreCard } from '../components/GenreCard';
+import { NewsContainer } from '../components/NewsContainer';
+import { Modal } from '../components/Modal';
 // import { PlatformsContainer } from '../PlatformsContainer';
-import { UpcomingContainer } from '../UpcomingContainer';
-import { ModalByGame } from '../Modal/modalByGame';
-import { GameContain} from '../GameDetail';
+import { UpcomingContainer } from '../components/UpcomingContainer';
+import { ModalByGame } from '../components/Modal/modalByGame';
+import { GameContain} from '../components/GameDetail';
 import { Link } from 'react-router-dom';
-import { PopularContainer } from '../PopularContainer';
-import { MainContain } from '../MainContain';
-import { SectionNewsUpcoming } from '../SectionNewsUpcoming';
-import { NavList } from '../NavList';
-import { MenuList } from '../MenuList';
-import { ListContainer } from '../ListContainer';
-import { ListLoading } from '../loading/ListLoadint';
+import { PopularContainer } from '../components/PopularContainer';
+import { MainContain } from '../components/MainContain';
+import { SectionNewsUpcoming } from '../components/SectionNewsUpcoming';
+import { NavList } from '../components/NavList';
+import { MenuList } from '../components/MenuList';
+import { ListContainer } from '../components/ListContainer';
+import { ListLoading } from '../components/loading/ListLoadint';
 // import { ListContainer } from '../ListContainer';
 
-const LazyGameCard = lazy(() => import('../GameCard'));
-const LazyNewsImage = lazy(()=> import ('../NewsCard'));
+const LazyGameCard = lazy(() => import('../components/GameCard'));
+const LazyNewsImage = lazy(()=> import ('../components/NewsCard'));
 
 function AppUI() {
 	const {
@@ -62,7 +62,7 @@ function AppUI() {
 					{popularGames && popularGames.map(game =>(
 						<Suspense key={game.id} fallback={<div>Cargando...</div>}>
 							<LazyGameCard
-								className={loading ? 'loading-card' : 'ranking-img'}
+								className={'ranking-img'}
 								id={game.id}
 								name={game.name}
 								src={game.background_image}
@@ -77,7 +77,7 @@ function AppUI() {
 						{gamesNews && gamesNews.map(game =>(
 							<Suspense key={game.title} fallback={<div className="skeleton">Cargando...</div>}>
 								<LazyNewsImage	
-									className={loading ? 'loading-card' : 'genre-contain'}						
+									className={'genre-contain'}						
 									name={game.title}
 									src={game.image}
 									url={game.link}
@@ -106,7 +106,7 @@ function AppUI() {
 						{upComing && upComing.map(game =>(
 							<Suspense key={game.id} fallback={<div className="skeleton">Cargando...</div>}>
 								<LazyGameCard
-									className={loading ? 'skeleton' : 'upcoming-img'}						
+									className={'upcoming-img'}						
 									id={game.id}
 									name={game.name}
 									src={game.background_image}

@@ -1,6 +1,6 @@
 import React from 'react';
-import { GameProvider } from '../GameContext';
 import { AppRouter } from '../routers/AppRouter';
+import { GameProvider } from './GameContext';
 
 
 

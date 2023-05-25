@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { GameContext } from '../GameContext';
+import { GameContext } from '../../App/GameContext';
 import { Link } from 'react-router-dom';
 
 

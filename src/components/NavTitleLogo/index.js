@@ -2,7 +2,7 @@ import React from 'react';
 import './NavTitleLogo.css';
 import PropTypes from 'prop-types';
 import { ToogleMenuButton } from '../ToogleMenuButton';
-import { GameContext } from '../GameContext';
+import { GameContext } from '../../App/GameContext';
 import { SearchForm } from '../SearchForm';
 
 function NavTitleLogo({className}){
