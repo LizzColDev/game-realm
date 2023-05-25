@@ -8,12 +8,12 @@ import {GamesByUpcomingPage} from '../pages/GamesByUpcomingPage';
 import {NewsPage} from '../pages/NewsPages';
 import {NotFoundPage} from '../pages/NotFoundPage';
 import { HomePage } from '../pages/HomePage';
-import { GameContext } from '../GameContext';
-import { ModalByGame } from '../Modal/modalByGame';
-import { GameContain } from '../GameDetail';
+import { GameContext } from '../App/GameContext';
+import { ModalByGame } from '../components/Modal/modalByGame';
+import { GameContain } from '../components/GameDetail';
 
 
-const LazyGameCard = lazy(() => import('../GameCard'));
+const LazyGameCard = lazy(() => import('../components/GameCard'));
 function AppRouter(){
 	const{
 		gamesByGenre, 

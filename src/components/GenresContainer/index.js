@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import './GenresContainer.css';
-import { GameContext } from '../GameContext';
+import { GameContext } from '../../App/GameContext';
 
 function GenresContainer(props){
 	const {isActive} = useContext(GameContext);

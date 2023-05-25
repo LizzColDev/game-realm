@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './styles.css';
-import { BackBtn } from '../BackBtn';
+import { BackBtn } from '../components/BackBtn';
 
 
 function GamesByGenresPage(props){

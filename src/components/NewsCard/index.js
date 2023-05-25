@@ -1,7 +1,7 @@
 import React, { useEffect}  from 'react';
 import PropTypes from 'prop-types';
 import './NewsCard.css';
-import { useIntersectionObserver } from '../GameContext/useIntersectionObserver';
+import { useIntersectionObserver } from '../../App/GameContext/useIntersectionObserver';
 
 function NewsCard(props){
 	const fecha = new Date(props.date);

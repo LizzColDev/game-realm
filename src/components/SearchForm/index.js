@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 // import { Link } from 'react-router-dom';
-import { GameContext } from '../GameContext';
+import { GameContext } from '../../App/GameContext';
 import './SearchForm.css';
 import { useNavigate  } from 'react-router-dom';
 
