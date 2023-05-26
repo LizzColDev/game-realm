@@ -88,14 +88,15 @@ function AppUI() {
 						))}
 					</NewsContainer>
 					{/* <NewsContainer>
-						{gamesNews && gamesNews.map(game =>(
-							<Suspense key={game.title} fallback={<div className="skeleton">Cargando...</div>}>
-								<LazyNewsImage							
-									name={game.title}
-									src={game.urlToImage}
-									url={game.link}
-									date={game.publishedAt}
-									description={game.description}
+						{gamesBySearch && gamesBySearch.map(game =>(
+
+							<Suspense key={game.id} fallback={<div className="skeleton">Cargando...</div>}>
+								<LazyGameCard
+									className='upcoming-img'
+									id={game.id}
+									name={game.name}
+									src={game.background_image}
+									setOpenModalByGame={setOpenModalByGame}
 								/>
 							</Suspense>
 						))}
