@@ -11,6 +11,7 @@ import { HomePage } from '../pages/HomePage';
 import { GameContext } from '../App/GameContext';
 import { ModalByGame } from '../components/Modal/modalByGame';
 import { GameContain } from '../components/GameDetail';
+import { NavHeader } from '../components/NavHeader';
 
 
 const LazyGameCard = lazy(() => import('../components/GameCard'));
@@ -27,8 +28,8 @@ function AppRouter(){
 		gamesBySearch,
 	} = React.useContext(GameContext);
 	return(
-		// eslint-disable-next-line react/react-in-jsx-scope
 		<Router>
+			<NavHeader />
 			<Routes>
 				<Route path='/genres' element={
 					<GamesByGenresPage name={page}>

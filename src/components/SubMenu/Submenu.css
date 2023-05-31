@@ -1,0 +1,24 @@
+.subMenu {
+    background: rgba(32, 35, 41,0.97);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    z-index: 1;
+    position: absolute;
+    padding: 10px;
+    list-style: none;
+    margin: 0;
+    left: -160px;
+    width: 160px;
+    top: 80px;
+    height: 680px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+  }
+
+  .subMenu::-webkit-scrollbar {
+    width: 6px;
+  }
+  

@@ -1,52 +1,55 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { GameContext } from '../../App/GameContext';
-
+import { Link } from 'react-router-dom';
+import { SubMenu } from '../SubMenu/SubMenu';
 
 function MenuList() {
-	const {  setIsActive, openModal,setOpenModalList } = React.useContext(GameContext);
+	const {  setIsActive, openModal, setShowSubMenu, setSelectedOption, setLoading, showSubMenu, selectedOption } = useContext(GameContext);
 
-	const onClickButton = (e) => {
-		if(openModal){
-			setOpenModalList(true);
-		}
-		if(e.target.value === e.target.value){
-			setOpenModalList(false);
 
+	const toggleSubMenu = (option) => {
+		setShowSubMenu(prevState => !prevState);
+		setSelectedOption(option);
+		if(!openModal){
+			setIsActive(prevState => !prevState);
+			setLoading(false);
 		}
-		// setOpenModal(prevState => !prevState);
-		setIsActive(prevState => !prevState);
 	};
+
 	return(
 		<>
 			<li>
-				<a alt='genres' onClick={onClickButton}>Genres</a>
+				<Link to="/ranking" >Ranking</Link>
 			</li>
 			<li>
-				<a alt='Ranking' onClick={onClickButton}>Ranking</a>
+				<Link to="/upcoming" >Upcoming Games</Link>
 			</li>
 			<li>
-				<a alt='Upcoming' onClick={onClickButton}>Upcoming Games</a>
-			</li>
-			<li>
-				<a alt='Platforms' onClick={onClickButton}>Platforms</a>
-			</li>
-			<li>
-				<a alt='News' onClick={onClickButton}>News</a>
+				<Link to="/news" >News</Link>
 			</li>
 				
 			<li>
-				<a alt='Guides and Tricks' onClick={onClickButton}>Guides and Tricks</a>
+				<Link to="/Guides and Tricks" >Guides and Tricks</Link>
 			</li>
+			<li>
+				<span onClick={() => toggleSubMenu('genres')} id='genres'>Genres</span>
+				{openModal && showSubMenu && selectedOption === 'genres' && <SubMenu />}
+			</li>
+			<li>
+				<span onClick={() => toggleSubMenu('platforms')} id='platforms'>Platforms</span>
+				{openModal && showSubMenu && selectedOption === 'platforms' && <SubMenu />}
+
+				
+
+			</li>
+
 		</>
 	);
 }
 
 MenuList.propTypes = {
-	className: PropTypes.string,
-	setOpenModal: PropTypes.func,
-
-
+	setOpenModalList: PropTypes.func,
 };
   
 export {MenuList};

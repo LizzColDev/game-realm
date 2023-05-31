@@ -19,8 +19,8 @@ function GameProvider(props){
 	const[openModalByGame, setOpenModalByGame] = useState(false);
 	const[isActive, setIsActive] = useState(false);
 	const [loading, setLoading] = useState(true);
-	const [openModalList, setOpenModalList] = useState(false);
-
+	const [showSubMenu, setShowSubMenu] = useState(false);
+	const [selectedOption, setSelectedOption] = useState('');
 
 	const {games} = useGameRanking();
 	const {popularGames} = usePopularGames();
@@ -71,8 +71,11 @@ function GameProvider(props){
 			isActive,
 			setLoading,
 			loading,
-			openModalList,
-			setOpenModalList,
+			query,
+			showSubMenu,
+			setShowSubMenu,
+			selectedOption,
+			setSelectedOption
 		}}>
 			{props.children}
 		</GameContext.Provider>
