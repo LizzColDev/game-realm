@@ -1,10 +1,10 @@
 .section-news-upcoming{
     display: flex;
     width: 100%;
+    gap: 12px;
 }
 @media screen and (min-width: 768px) {
     .section-news-upcoming{
-        width: 90%;
         max-width: 1280px;
         margin: 0 auto;
     }

@@ -40,7 +40,8 @@ function NewsCard(props) {
 				<p className={`${isMobile ? 'mobile-news-description' : 'description-news'}`}>
 					{props.description}
 				</p>
-				<div style={{display: 'flex', justifyContent: 'space-between'}}>
+				<div 
+					style={{display: 'flex', justifyContent: 'space-between', flexDirection: 'row', flexWrap: 'wrap', gap:'6px', marginTop: '4px'}}>
 					<Card.Text className='date-source'>{formattedDate}</Card.Text>
 					<a 
 						className='date-source domain'
@@ -48,8 +49,6 @@ function NewsCard(props) {
 						target='_blank'
 						rel='noopener noreferrer'>{domain}</a>
 				</div>
-
-
 			</Card.Body>
 		</Card>
 	);

@@ -11,6 +11,9 @@ function NewsContainer(props){
 			<article className='news-contain'>
 				{props.children}
 			</article>
+			<button className='btn upcoming-btn' style={{margin: '0 auto'}}>
+        Load more
+			</button>
 		</section>
 	);
 }
