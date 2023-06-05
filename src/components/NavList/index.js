@@ -3,13 +3,15 @@ import './NavList.css';
 import PropTypes from 'prop-types';
 
 
-function NavList(props) {
-	
+function NavList({ selectedOption, setSelectedOption, children, className }) {
+
+
 	return(
 		<>
-			<ul className={props.className}>
-				{props.loading && props.onLoading()}
-				{props.children}
+			<ul className={className}>
+				{React.Children.map(children, child =>
+					React.cloneElement(child, { selectedOption, setSelectedOption })
+				)}
 			</ul>
 		</>
 	);
@@ -18,8 +20,8 @@ function NavList(props) {
 NavList.propTypes = {
 	className: PropTypes.string,
 	children: PropTypes.node,
-	loading: PropTypes.string,
-	onLoading: PropTypes.string,
+	selectedOption: PropTypes.string,
+	setSelectedOption: PropTypes.func,
 };
   
 export {NavList};

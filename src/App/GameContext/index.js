@@ -1,9 +1,7 @@
 import React, {createContext, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useGameRanking } from './useGameRanking';
-import { useGenres } from './useGamesGenres';
 import { useGamesNews } from './useGamesNews';
-import { usePlatformsGames } from './usePlatformsGames';
 import { useUpcoming } from './useUpcomingGames';
 import {useGamesByGenre} from './useGamesByGenre';
 import { useGameById } from './useGameById';
@@ -25,9 +23,7 @@ function GameProvider(props){
 	const {games} = useGameRanking();
 	const {popularGames} = usePopularGames();
 	const {gamesBySearch} = useGamesBySearch(query);
-	const {genres} = useGenres();
 	const {gamesNews} = useGamesNews();
-	const {platforms} = usePlatformsGames();
 	const[openModal, setOpenModal] = useState(false);
 	const {upComing} = useUpcoming();
 	
@@ -51,11 +47,9 @@ function GameProvider(props){
 	return(
 		<GameContext.Provider value={{
 			games, 
-			genres, 
 			gamesNews,
 			openModal,
 			setOpenModal,
-			platforms,
 			upComing,
 			gamesByGenre,
 			page,

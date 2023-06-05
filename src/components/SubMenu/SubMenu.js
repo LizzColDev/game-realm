@@ -1,52 +1,41 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
-// import { GameContext } from '../../App/GameContext';
 import { Link } from 'react-router-dom';
 import './Submenu.css';
 import { GameContext } from '../../App/GameContext';
+import { useDataBySelectedMenu } from '../../App/GameContext/useDataBySelectedMenu';
 
 
-function SubMenu() {
-	const [subMenuContent, setSubMenuContent] = useState(null);
-	const { genres, goPages, platforms, selectedOption } = useContext(GameContext);
-	useEffect(() =>{
-		if (selectedOption === 'genres') {
-			setSubMenuContent (
-				<>{genres && genres.map(genre =>(
-					<li key={genre.id}>
-						<Link  to='/genres' onClick={goPages}>
-							{genre.name}
-						</Link>
-					</li>
+function SubMenu({selectedOption}) {
+	console.log({selectedOption});
+	const {  goPages } = useContext(GameContext);
+	const { gameData, isLoading, isError } = useDataBySelectedMenu(selectedOption);
+	console.log(gameData);
+	if (isLoading) {
+		return <div>Loading...</div>;
+	  }
+	
+	  if (isError) {
+		return <div>Error fetching {selectedOption}</div>;
+	  }
 
-				))}
-				</>
-			);
-		} else if (selectedOption === 'platforms') {
-			setSubMenuContent(
-				<>{platforms && platforms.map(platform =>(
-					<li key={platform.id}>
-						<Link  to='/platform' onClick={goPages}>
-							{platform.name}
-						</Link>
-					</li>
-
-				))}
-				</>
-			);
-		}
-	}, [selectedOption]);
 
 	return(
-		<ul className={`subMenu subMenu-${selectedOption}`}>
-			{subMenuContent}
+		<ul className={`subMenu subMenu-${gameData}`}>
+			{gameData && gameData.map((option) =>(
+				<li key={option.id}>
+					<Link  to={`/${selectedOption}`} onClick={goPages}>
+						{option.name}
+					</Link>
+				</li>
+
+			))}
 		</ul>
 	);
 }
 
 SubMenu.propTypes = {
-	selectedOption: PropTypes.string,
-
+	selectedOption: PropTypes.arrayOf(PropTypes.object),
 
 };
   

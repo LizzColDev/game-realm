@@ -7,7 +7,6 @@ import { SubMenu } from '../SubMenu/SubMenu';
 function MenuList() {
 	const {  setIsActive, openModal, setShowSubMenu, setSelectedOption, setLoading, showSubMenu, selectedOption } = useContext(GameContext);
 
-
 	const toggleSubMenu = (option) => {
 		setShowSubMenu(prevState => !prevState);
 		setSelectedOption(option);
@@ -34,16 +33,16 @@ function MenuList() {
 			</li>
 			<li>
 				<span onClick={() => toggleSubMenu('genres')} id='genres'>Genres</span>
-				{openModal && showSubMenu && selectedOption === 'genres' && <SubMenu />}
+				{openModal && showSubMenu && selectedOption === 'genres' && <SubMenu selectedOption={selectedOption} />}
 			</li>
 			<li>
 				<span onClick={() => toggleSubMenu('platforms')} id='platforms'>Platforms</span>
-				{openModal && showSubMenu && selectedOption === 'platforms' && <SubMenu />}
-
-				
-
+				{openModal && showSubMenu && selectedOption === 'platforms' && <SubMenu selectedOption={`${selectedOption}/lists/parents`} />}
 			</li>
-
+			<li>
+				<span onClick={() => toggleSubMenu('stores')} id='stores'>Stores</span>
+				{openModal && showSubMenu && selectedOption === 'stores' && <SubMenu selectedOption={selectedOption}/>}
+			</li>
 		</>
 	);
 }

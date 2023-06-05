@@ -1,19 +1,22 @@
 import React from 'react';
-import { GameContext } from '../../App/GameContext';
 import { OptionSelectedMenu } from '../OptionSelectedMenu';
+import PropTypes from 'prop-types';
 
 
-function ListContainer() {
-	const {  openModal, selectedOption } = React.useContext(GameContext);
+function ListContainer({ selectedOption, setSelectedOption }) {
+	const handleOptionSelect = (option) => {
+		setSelectedOption(option);
+	  };
 
 	return(
-		<>
-			
-			{!openModal && selectedOption === 'genres' && <OptionSelectedMenu />}
-			{!openModal && selectedOption === 'platforms' && <OptionSelectedMenu/>}
-				
+		<>		
+			{ selectedOption  && <OptionSelectedMenu selectedOption={selectedOption} onClick={() => handleOptionSelect('genres')} />}				
 		</>
 	);
 }
-  
+
+ListContainer.propTypes = {
+	selectedOption: PropTypes.string,
+	setSelectedOption: PropTypes.func,
+};
 export {ListContainer};

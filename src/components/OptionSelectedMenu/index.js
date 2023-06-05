@@ -1,54 +1,37 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext} from 'react';
 import PropTypes from 'prop-types';
 import './OptionSelectedMenu.css';
 import { GameContext } from '../../App/GameContext';
 import { Link } from 'react-router-dom';
 import { GenreCard } from '../GenreCard';
+import { useDataBySelectedMenu } from '../../App/GameContext/useDataBySelectedMenu';
 
-function OptionSelectedMenu(){
-	const [subMenuContent, setSubMenuContent] = useState(null);
-	const { genres, goPages, platforms, loading, isActive, selectedOption } = useContext(GameContext);
-
-	useEffect(() =>{
-		if (selectedOption === 'genres') {
-			setSubMenuContent (
-				<>
-					{genres && genres.map(genre =>(
-						<li key={genre.id}>
-							<Link  to='/genres' onClick={goPages}>
-								<GenreCard 
-									className={loading ? 'loading-card' : 'genre-contain'}
-									genreName= {genre.name}
-									name={genre.name} />
-							</Link>
-						</li>
-
-					))}
-				</>
-			);
-		} else if (selectedOption === 'platforms') {
-			setSubMenuContent(
-				<>{platforms && platforms.map(platform =>(
-					<li key={platform.id}>
-						<Link  to='/platform' onClick={goPages}>
-							<GenreCard 
-								className={loading ? 'loading-card' : 'genre-contain'}
-								genreName= {platform.name}
-								name={platform.name} />
-						</Link>
-					</li>
-
-				))}
-				</>
-			);
-		}
-	}, [selectedOption]);
+function OptionSelectedMenu({selectedOption}){
+	const { goPages, isActive } = useContext(GameContext);
+	const { gameData, isLoading, isError } = useDataBySelectedMenu(selectedOption);
+	console.log(gameData, isLoading, isError);
+	if(isLoading){
+		return <div>Loading ...</div>;
+	}
+	if(isError){
+		return <div>Error fetching {selectedOption} </div>;
+	}
 
 	return(
 		<section className={`genres-container ${isActive ? 'show' : ''}`} id='genres'>
 			<h2 className='genres-title'>{selectedOption}</h2>
 			<article className='genres-contain'>
-				{subMenuContent}
+				{gameData && gameData.map((option) =>(
+					<li key={option.id}>
+						<Link  to='/platform' onClick={goPages}>
+							<GenreCard 
+								className={isLoading ? 'loading-card' : 'genre-contain'}
+								genreName= {option.name}
+								name={option.name} />
+						</Link>
+					</li>
+
+				))}
 			</article>
 		</section>
 	);
