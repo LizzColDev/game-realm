@@ -23,7 +23,7 @@ function OptionSelectedMenu({selectedOption}){
 			<article className='genres-contain'>
 				{gameData && gameData.map((option) =>(
 					<li key={option.id}>
-						<Link  to='/platform' onClick={goPages}>
+						<Link  to={`/${selectedOption}`} onClick={goPages}>
 							<GenreCard 
 								className={isLoading ? 'loading-card' : 'genre-contain'}
 								genreName= {option.name}
