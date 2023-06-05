@@ -3,7 +3,6 @@ import { API_RAWG } from './apiConfig';
 import { useQuery } from 'react-query';
 
 function useDataBySelectedMenu(category) {
-	console.log(category);
 	if(category === 'platforms'){
 		category = 'platforms/lists/parents';
 	}

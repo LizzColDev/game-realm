@@ -9,8 +9,8 @@ import { useDataBySelectedMenu } from '../../App/GameContext/useDataBySelectedMe
 function OptionSelectedMenu({selectedOption}){
 	const { goPages, isActive } = useContext(GameContext);
 	const { gameData, isLoading, isError } = useDataBySelectedMenu(selectedOption);
-	console.log(gameData, isLoading, isError);
 	if(isLoading){
+		
 		return <div>Loading ...</div>;
 	}
 	if(isError){

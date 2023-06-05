@@ -3,14 +3,11 @@ import { OptionSelectedMenu } from '../OptionSelectedMenu';
 import PropTypes from 'prop-types';
 
 
-function ListContainer({ selectedOption, setSelectedOption }) {
-	const handleOptionSelect = (option) => {
-		setSelectedOption(option);
-	  };
+function ListContainer({ selectedOption }) {
 
 	return(
 		<>		
-			{ selectedOption  && <OptionSelectedMenu selectedOption={selectedOption} onClick={() => handleOptionSelect('genres')} />}				
+			{ selectedOption  && <OptionSelectedMenu selectedOption={selectedOption} />}				
 		</>
 	);
 }

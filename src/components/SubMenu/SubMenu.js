@@ -7,10 +7,8 @@ import { useDataBySelectedMenu } from '../../App/GameContext/useDataBySelectedMe
 
 
 function SubMenu({selectedOption}) {
-	console.log({selectedOption});
 	const {  goPages } = useContext(GameContext);
 	const { gameData, isLoading, isError } = useDataBySelectedMenu(selectedOption);
-	console.log(gameData);
 	if (isLoading) {
 		return <div>Loading...</div>;
 	  }
@@ -35,7 +33,7 @@ function SubMenu({selectedOption}) {
 }
 
 SubMenu.propTypes = {
-	selectedOption: PropTypes.arrayOf(PropTypes.object),
+	selectedOption: PropTypes.string,
 
 };
   
