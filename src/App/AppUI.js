@@ -11,6 +11,8 @@ import { MainContain } from '../components/MainContain';
 import { SectionNewsUpcoming } from '../components/SectionNewsUpcoming';
 import { NavList } from '../components/NavList';
 import { MenuList } from '../components/MenuList';
+import { useQuery } from 'react-query';
+import { fetchGames } from './GameContext/useDataGames';
 
 
 const LazyGameCard = lazy(() => import('../components/GameCard'));
@@ -20,14 +22,20 @@ function AppUI() {
 	const {
 		gamesNews,
 		openModal,
-		upComing,
 		openModalByGame,
 		setOpenModalByGame,
 		gameById,
-		popularGames,
-
 	} = React.useContext(GameContext);
 
+	const {data, isLoading, error} = useQuery('games', fetchGames);
+
+	if(isLoading) {
+		return <div>Loading...</div>;
+	}
+	if(error){
+		return <div>Error: {error.message} </div>;
+	}
+	const {upcomingGames, popularGames } = data;
 	return (
 		<>
 			<MainContain>
@@ -62,7 +70,7 @@ function AppUI() {
 						))}
 					</NewsContainer>
 					<UpcomingContainer>
-						{upComing && upComing.map(game =>(
+						{upcomingGames && upcomingGames.map(game =>(
 							<Suspense key={game.id} fallback={<div className="skeleton">Cargando...</div>}>
 								<LazyGameCard
 									className={'upcoming-img'}						

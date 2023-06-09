@@ -1,12 +1,11 @@
 import React, {createContext, useState } from 'react';
 import PropTypes from 'prop-types';
-import { useGameRanking } from './useGameRanking';
 import { useGamesNews } from './useGamesNews';
-import { useUpcoming } from './useUpcomingGames';
 import {useGamesByGenre} from './useGamesByGenre';
 import { useGameById } from './useGameById';
-import { usePopularGames } from './usePopularGames';
 import { useGamesBySearch } from './useGamesBySearch';
+// import { useGames } from './useGames';
+// import { useDataGames } from './useDataGames';
 
 const GameContext = createContext();
 
@@ -19,19 +18,16 @@ function GameProvider(props){
 	const [loading, setLoading] = useState(true);
 	const [showSubMenu, setShowSubMenu] = useState(false);
 	const [selectedOption, setSelectedOption] = useState('');
+	// const [gamesBySelected, setGamesBySelected] = useState('');
+	const [toValue, setToValue] = useState('');
+	const [openModal, setOpenModal] = useState(false);
 
-	const {games} = useGameRanking();
-	const {popularGames} = usePopularGames();
 	const {gamesBySearch} = useGamesBySearch(query);
 	const {gamesNews} = useGamesNews();
-	const[openModal, setOpenModal] = useState(false);
-	const {upComing} = useUpcoming();
-	
+	// const { allGamesBySelect, isLoading, isError } = useDataGames(gamesBySelected);
 	const {gameById} = useGameById(id);
-
 	const getPage = (select) =>setPage(select);
 	const getId = (select) =>setId(select);
-
 	const {gamesByGenre} = useGamesByGenre(page);
 
 	function goPages(e) {
@@ -44,13 +40,16 @@ function GameProvider(props){
 		getPage(nameJoined);
 	}
 
+
+
 	return(
 		<GameContext.Provider value={{
-			games, 
+			// allGamesBySelect,
+			// isLoading,
+			// isError,
 			gamesNews,
 			openModal,
 			setOpenModal,
-			upComing,
 			gamesByGenre,
 			page,
 			goPages,
@@ -58,7 +57,6 @@ function GameProvider(props){
 			setOpenModalByGame,
 			gameById,
 			getId,
-			popularGames,
 			gamesBySearch,
 			setQuery,
 			setIsActive,
@@ -69,7 +67,10 @@ function GameProvider(props){
 			showSubMenu,
 			setShowSubMenu,
 			selectedOption,
-			setSelectedOption
+			setSelectedOption,
+			// setGamesBySelected,
+			toValue,
+			setToValue
 		}}>
 			{props.children}
 		</GameContext.Provider>

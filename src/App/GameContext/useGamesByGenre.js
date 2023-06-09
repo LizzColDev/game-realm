@@ -7,7 +7,7 @@ function useGamesByGenre(genre){
 		async function getGames() {
 			try{
 				const {data} = await API_RAWG.get('games', {
-					params: {'genres':genre ||  'action'},
+					params: {'genres':genre},
 				});
 				setGames(data.results);
 			} catch(error){
