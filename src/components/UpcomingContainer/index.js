@@ -13,7 +13,7 @@ function UpcomingContainer(props){
 			<section className='upcoming-container' id='upcoming'>
 				<div className='upcoming-header'>
 					<h2 className='upcoming-title'>Upcoming Games {currentYear}</h2>
-					<Link to={'/upcoming'}>
+					<Link to={'/upcoming-games'}>
 						<button className='upcoming-btn btn'>See more</button>
 
 					</Link>

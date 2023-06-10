@@ -8,7 +8,7 @@ function RankingContainer(props){
 		<section className='rankingGames-container' id='ranking'>
 			<div className='ranking-header'>
 				<h2 className='ranking-title'>Ranking</h2>
-				<Link to={'/ranking'}>
+				<Link to={'/ranking-games'}>
 					<button className='ranking-btn btn'>See more</button>
 
 				</Link>

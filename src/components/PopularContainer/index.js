@@ -8,7 +8,7 @@ function PopularContainer(props){
 		<section className='games-preview-container' id='popular'>
 			<div className='preview-header'>
 				<h2 className='preview-title'>Most Popular</h2>
-				<Link to={'/populars'}>
+				<Link to={'/popular-games'}>
 					<button className='ranking-btn btn'>See more</button>
 
 				</Link>

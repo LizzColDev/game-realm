@@ -19,13 +19,11 @@ const LazyGameCard = lazy(() => import('../components/GameCard'));
 function AppRouter(){
 	const{
 		allGamesBySelect,
-		page, 
-		setOpenModalByGame, 
+		page,  
 		openModalByGame, 
 		gameById, 
 		gamesBySearch,
-		toValue,
-		setAllGamesBySelect
+
 	} = React.useContext(GameContext);
 
 	const {data, isLoading, error} = useQuery('games', fetchGames);
@@ -37,26 +35,17 @@ function AppRouter(){
 	if(error){
 		return <div>Error fetching {allGamesBySelect} </div>;
 	}
-	let gamesBySelect = [];
-	if (toValue === '/ranking-games') {
-		gamesBySelect = data?.rankingGames;
-	  } else if (toValue === '/upcoming-games') {
-		gamesBySelect = data?.upcomingGames;
-	  } else if (toValue === '/popular-games') {
-		gamesBySelect = data?.popularGames;
-	  } else if (toValue === '/genres') {
-		gamesBySelect = data?.gamesByGenres;
-	  }
-	  console.log(toValue);
+	const {rankingGames,  upcomingGames, popularGames, gamesByGenres} = data;
+
 	return(
 		<Router>
 			<NavHeader />
 			<Routes>
-				<Route path='/' element={<HomePage/>} />
+				<Route exact path='/' element={<HomePage/>} />
 
-				<Route path='/genres' element={
+				<Route path='/genres:genre' element={
 					<GamesByGenresPage name={page}>
-						{gamesBySelect && gamesBySelect.map(game =>(                            
+						{gamesByGenres && gamesByGenres.map(game =>(                            
 							<Suspense key={game.id} fallback={<div>Cargando...</div>}>
 								<LazyGameCard
 									id={game.id}
@@ -64,7 +53,6 @@ function AppRouter(){
 									key={game.id}
 									name={game.name}
 									src={game.background_image}
-									setOpenModalByGame={setOpenModalByGame}
 								/>
 				
 							</Suspense>
@@ -72,21 +60,33 @@ function AppRouter(){
 						
 					</GamesByGenresPage>} />
 					
-				<Route key={JSON.stringify(gamesBySelect)} path={toValue} element={
-					<GamesByRankingPage setAllGamesBySelect = {setAllGamesBySelect}>
-						{gamesBySelect && gamesBySelect.map(game =>(
-							<Suspense key={game.id} fallback={<div>Cargando...</div>}>
-								<LazyGameCard
-									className='pages'
-									id={game.id}
-									key={game.id}
-									name={game.name}
-									src={game.background_image}
-								/>
-						
-		  </Suspense>
-						))}	
-					</GamesByRankingPage>} />
+				<Route
+					path="/upcoming-games"
+					element={(
+						<GamesByRankingPage
+							title="Upcoming Games"
+							games={upcomingGames}
+						/>
+					)}
+				/>
+				<Route
+					path="/ranking-games"
+					element={(
+						<GamesByRankingPage
+							title="Ranking Games"
+							games={rankingGames}
+						/>
+					)}
+				/>
+				<Route
+					path="/popular-games"
+					element={(
+						<GamesByRankingPage
+							title="Popular Games"
+							games={popularGames}
+						/>
+					)}
+				/>
 
 				<Route path='/platforms' element={<GamesByPlatformsPage />} />
 					
