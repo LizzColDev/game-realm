@@ -2,15 +2,13 @@ import React, {lazy, Suspense}  from 'react';
 import './App.css';
 import { GameContext } from './GameContext';
 import { NewsContainer } from '../components/NewsContainer';
-import { Modal } from '../components/Modal';
 import { UpcomingContainer } from '../components/UpcomingContainer';
 import { ModalByGame } from '../components/Modal/modalByGame';
 import { GameContain} from '../components/GameDetail';
 import { PopularContainer } from '../components/PopularContainer';
 import { MainContain } from '../components/MainContain';
 import { SectionNewsUpcoming } from '../components/SectionNewsUpcoming';
-import { NavList } from '../components/NavList';
-import { MenuList } from '../components/MenuList';
+// import { MenuList } from '../components/MenuList';
 import { useQuery } from 'react-query';
 import { fetchGames } from './GameContext/useDataGames';
 
@@ -21,7 +19,6 @@ const LazyNewsImage = lazy(()=> import ('../components/NewsCard'));
 function AppUI() {
 	const {
 		gamesNews,
-		openModal,
 		openModalByGame,
 		setOpenModalByGame,
 		gameById,
@@ -86,16 +83,6 @@ function AppUI() {
 				</SectionNewsUpcoming>
 				
 			</MainContain>
-
-			{!!openModal && (
-				<Modal className='ModalBackground'>
-					<NavList  className='modal-links'>
-						<MenuList/>
-					</NavList>
-					
-					
-				</Modal>
-			)}
 
 			{!!openModalByGame && gameById &&
 			 <ModalByGame>

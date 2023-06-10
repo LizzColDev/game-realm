@@ -8,9 +8,10 @@ const queryClient = new QueryClient();
 function App() {
   
 	return (
-		<QueryClientProvider client={queryClient}>	<GameProvider>
-			< AppRouter/>
-		</GameProvider>   
+		<QueryClientProvider client={queryClient}>
+			<GameProvider>
+				< AppRouter/>
+			</GameProvider>   
 		</QueryClientProvider>
 	);
 }
