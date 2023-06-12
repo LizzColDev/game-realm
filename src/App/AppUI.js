@@ -8,9 +8,8 @@ import { GameContain} from '../components/GameDetail';
 import { PopularContainer } from '../components/PopularContainer';
 import { MainContain } from '../components/MainContain';
 import { SectionNewsUpcoming } from '../components/SectionNewsUpcoming';
-// import { MenuList } from '../components/MenuList';
-import { useQuery } from 'react-query';
-import { fetchGames } from './GameContext/useDataGames';
+import {  useGames } from './GameContext/useDataGames';
+import { useGamesNews } from './GameContext/useGamesNews';
 
 
 const LazyGameCard = lazy(() => import('../components/GameCard'));
@@ -18,18 +17,16 @@ const LazyNewsImage = lazy(()=> import ('../components/NewsCard'));
 
 function AppUI() {
 	const {
-		gamesNews,
 		openModalByGame,
 		setOpenModalByGame,
 		gameById,
 	} = React.useContext(GameContext);
 
-	const {data, isLoading, error} = useQuery('games', fetchGames);
+	const { data, isLoading, error } = useGames();
+	const { data: news, isLoading: loadingNews, error: errorNews } = useGamesNews();
 
-	if(isLoading) {
-		return <div>Loading...</div>;
-	}
-	if(error){
+	
+	if(error || errorNews){
 		return <div>Error: {error.message} </div>;
 	}
 	const {upcomingGames, popularGames } = data;
@@ -38,22 +35,29 @@ function AppUI() {
 			<MainContain>
 
 				<PopularContainer className='most-popular-preview'>
-					{popularGames && popularGames.map(game =>(
-						<Suspense key={game.id} fallback={<div>Cargando...</div>}>
-							<LazyGameCard
-								className={'ranking-img'}
-								id={game.id}
-								name={game.name}
-								src={game.background_image}
-								setOpenModalByGame={setOpenModalByGame}
-							/>
-						</Suspense>
-					))}
+					{isLoading ? (
+						<div>Loading ...</div>
+					) : (
+						popularGames && popularGames.map(game =>(
+							<Suspense key={game.id} fallback={<div>Cargando...</div>}>
+								<LazyGameCard
+									className={'ranking-img'}
+									id={game.id}
+									name={game.name}
+									src={game.background_image}
+									setOpenModalByGame={setOpenModalByGame}
+								/>
+							</Suspense>
+						))
+					)}
+
 				</PopularContainer>
 
 				<SectionNewsUpcoming>
 					<NewsContainer>
-						{gamesNews && gamesNews.map(game =>(
+						{loadingNews ? (
+							<div>Loading...</div>
+						) : (news && news.map(game =>(
 							<Suspense key={game.title} fallback={<div className="skeleton">Cargando...</div>}>
 								<LazyNewsImage	
 									className={'genre-contain'}						
@@ -64,10 +68,12 @@ function AppUI() {
 									description={game.description}
 								/>
 							</Suspense>
-						))}
+						)))}
 					</NewsContainer>
 					<UpcomingContainer>
-						{upcomingGames && upcomingGames.map(game =>(
+						{isLoading ? (
+							<div>Loading...</div>
+						) : (upcomingGames && upcomingGames.map(game =>(
 							<Suspense key={game.id} fallback={<div className="skeleton">Cargando...</div>}>
 								<LazyGameCard
 									className={'upcoming-img'}						
@@ -78,7 +84,7 @@ function AppUI() {
 								/>
 
 		  </Suspense>
-						))}
+						)))}
 					</UpcomingContainer>
 				</SectionNewsUpcoming>
 				

@@ -1,29 +1,29 @@
-import { useEffect, useState } from 'react';
 import {API_NEWS_VIDEOGAMES} from './apiConfig';
+import { useQuery, useQueryClient } from 'react-query';
+
+const fetchNews = async () => {
+	try {
+		const {data} = await API_NEWS_VIDEOGAMES.get('recent');
+		return data;
+	} catch(error){
+		console.error(error);
+	}
+};
 
 function useGamesNews(){
-	const [gamesNews, setNews] = useState([]); 	
+	
+	const queryClient = useQueryClient();
 
-	useEffect(() =>{
-		async function getNewsGames() {
-			try{
-				const {data} = await API_NEWS_VIDEOGAMES.get('recent', {
-					params: {
 
-					}
-				});
-				
-				setNews(data);
-			} catch(error){
-				console.error(error);
-			}
-		}
-		getNewsGames();		
-	}, []);
-
-	return {
-		gamesNews,
-	};
+	return useQuery('gamesNews', fetchNews, {
+		initialData:() => {
+			return queryClient.getQueryData('gamesNews');
+		},
+		onSuccess: (data) => {
+			queryClient.setQueryData('gamesNews', data);
+		},
+		staleTime: 600000
+	});
 }
 
 export {useGamesNews};

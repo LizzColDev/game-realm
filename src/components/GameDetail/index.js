@@ -4,11 +4,11 @@ import './GameById.css';
 import { GameContext } from '../../App/GameContext';
 import parse from 'html-react-parser';
 import { CloseBtn } from '../CloseBtn';
-import { GenreCard } from '../GenreCard';
 import { Link } from 'react-router-dom';
+import { Badge, Button } from 'react-bootstrap';
 
 function GameContain(){
-	const {gameById, setOpenModalByGame, goPages} = useContext(GameContext);
+	const {gameById, setOpenModalByGame} = useContext(GameContext);
 	if(gameById instanceof Promise){
 		return(
 			<div>Cargando...</div>
@@ -48,23 +48,22 @@ function GameContain(){
 
 			<div className='stores-genres-game'>
 				<div>
-					<h5>Platforms:</h5>
+					<h5>Stores:</h5>
 					{stores && stores.map(store =>(
-						<Link key={store.id} to='/games-by-platforms' onClick={goPages}>
-							<GenreCard genreName={store.store.name}> </GenreCard>
-						
-						</Link>
+						<h2 key={stores.id}>
+							<Badge bg="light" text="dark">{store.store.name}						
+							</Badge>
+						</h2>
+					
 
 					))}
 				</div>
 				<div>
 					<h5>Genres:</h5>
 					{genres && genres.map(genre =>(
-						<Link key={genre.id} to='/genres' onClick={goPages}>
-							<GenreCard 
-								genreName= {genre.name}
-								name={genre.name} />
-						</Link>
+						<Button as={Link} key={genre.id} to={`/genres/${genre.name.toLowerCase()}`}>
+							{genre.name}
+						</Button>
 					))}
 				</div>
 

@@ -9,7 +9,7 @@ const GameCard = lazy(() => import('../components/GameCard/index.js'));
 
 function GamesByRankingPage({title, games}){
 	document.body.style.overflow = 'auto';
-	console.log(games);
+
 	return(
 		<div className='pages-container'>
 			<div>

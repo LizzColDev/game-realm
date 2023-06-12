@@ -60,6 +60,7 @@
     flex-wrap: wrap;
     align-content: center;
     gap: 6px;
+    margin: 12px;
 }
 
 .stores-genres-game div{
@@ -78,6 +79,7 @@
     padding: 4px;
     border-radius: 4px;
     text-align: center;
+    margin: 0;
 }
 
 @media all and (min-width: 480px) and (max-width: 768px) { 

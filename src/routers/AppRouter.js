@@ -1,9 +1,7 @@
-import React, {lazy, Suspense} from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import {GamesByGenresPage} from '../pages/GamesByGenresPage';
 import {GamesByRankingPage} from '../pages/GamesByRankingPage';
-import {GamesByPlatformsPage} from '../pages/GamesByPlatformsPage';
-import {GamesByUpcomingPage} from '../pages/GamesByUpcomingPage';
 import {NewsPage} from '../pages/NewsPages';
 import {NotFoundPage} from '../pages/NotFoundPage';
 import { HomePage } from '../pages/HomePage';
@@ -11,23 +9,20 @@ import { GameContext } from '../App/GameContext';
 import { ModalByGame } from '../components/Modal/modalByGame';
 import { GameContain } from '../components/GameDetail';
 import { NavHeader } from '../components/NavHeader';
-import { useQuery } from 'react-query';
-import { fetchGames } from '../App/GameContext/useDataGames';
+import {useGames} from '../App/GameContext/useDataGames';
 
 
-const LazyGameCard = lazy(() => import('../components/GameCard'));
 function AppRouter(){
 	const{
 		allGamesBySelect,
-		page,  
 		openModalByGame, 
 		gameById, 
 		gamesBySearch,
 
 	} = React.useContext(GameContext);
 
-	const {data, isLoading, error} = useQuery('games', fetchGames);
-
+	const { data, isLoading, error } = useGames();
+	
 	if(isLoading){
 		
 		return <div>Loading ...</div>;
@@ -35,31 +30,13 @@ function AppRouter(){
 	if(error){
 		return <div>Error fetching {allGamesBySelect} </div>;
 	}
-	const {rankingGames,  upcomingGames, popularGames, gamesByGenres} = data;
+	const {rankingGames,  upcomingGames, popularGames} = data;
 
 	return(
 		<Router>
 			<NavHeader />
 			<Routes>
 				<Route exact path='/' element={<HomePage/>} />
-
-				<Route path='/genres:genre' element={
-					<GamesByGenresPage name={page}>
-						{gamesByGenres && gamesByGenres.map(game =>(                            
-							<Suspense key={game.id} fallback={<div>Cargando...</div>}>
-								<LazyGameCard
-									id={game.id}
-									className='pages'
-									key={game.id}
-									name={game.name}
-									src={game.background_image}
-								/>
-				
-							</Suspense>
-						))}
-						
-					</GamesByGenresPage>} />
-					
 				<Route
 					path="/upcoming-games"
 					element={(
@@ -87,24 +64,17 @@ function AppRouter(){
 						/>
 					)}
 				/>
-
-				<Route path='/platforms' element={<GamesByPlatformsPage />} />
+				<Route path='/genres/:genre' element={<GamesByGenresPage />} />
 					
-				<Route path='/results' element={<GamesByUpcomingPage>
-					{gamesBySearch && gamesBySearch.map(game =>(
-						<Suspense key={game.id} fallback={<div className="skeleton">Cargando...</div>}>
-							<LazyGameCard  key={game.id}
-								className='pages'
-								id={game.id}
-
-								name={game.name}
-								src={game.background_image
-								} />
-						
-		  </Suspense>	
-					))}	
-				</GamesByUpcomingPage>} />
+				<Route path='/search/:search' 
+					element={(<GamesByRankingPage
+						title='Games by Search'
+						games={gamesBySearch}
+					/>
+					)}
+				/>
 				<Route path='/news' element={<NewsPage />} />					
+				
 				<Route path='*' element={<NotFoundPage />} />
 					
 			</Routes>

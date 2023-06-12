@@ -1,26 +1,37 @@
-import { useEffect, useState } from 'react';
-import {API_RAWG} from './apiConfig';
+import { API_RAWG } from './apiConfig';
+import { useQuery, useQueryClient } from 'react-query';
 
-function useGamesByGenre(genre){
-	const [gamesByGenre, setGames] = useState([]); 	
-	useEffect(() =>{
-		async function getGames() {
-			try{
-				const {data} = await API_RAWG.get('games', {
-					params: {'genres':genre},
-				});
-				setGames(data.results);
-			} catch(error){
-				console.error(error);
-			}
-		}
-		getGames();
-		
-	}, [genre]);
+const fetchGames = async (genre) => {
+	try {		
+		const gamesByGenresResponse = await API_RAWG.get('games', {
+			params:{
+				genres: genre,
+				ordering: '-rating_top' 
+			}});
+		const gamesByGenres = gamesByGenresResponse.data.results;
 
-	return {
-		gamesByGenre,
-	};
-}
+		return {
+			gamesByGenres,
+		};
 
-export {useGamesByGenre};
+	} catch (error) {
+		console.error(error);
+		throw new Error('Error retrieving the games');
+	}
+};
+
+const useGamesByGenre = (genre) => {
+	const queryClient = useQueryClient();
+
+	return useQuery(['gamesBySelect', genre], () => fetchGames(genre), {
+		initialData:() =>{
+			return queryClient.getQueryData(['gamesBySelect', genre]);
+		},
+		onSuccess: (data) =>{
+			queryClient.setQueryData(['gamesBySelect', genre], data);
+		},
+		staleTime: 300000,
+	});
+};
+
+export { useGamesByGenre };
