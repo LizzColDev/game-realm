@@ -81,12 +81,14 @@
     text-align: center;
     margin: 0;
 }
-
+.game-id div img{
+    height: auto;
+    width: 100%;
+    min-width: 100%;
+}
 @media all and (min-width: 480px) and (max-width: 768px) { 
 
-    .game-id div img{
-        height: 400px;
-    }
+
     .released{
         font-size: 0.9rem;
     }
@@ -99,11 +101,7 @@
 }
 
 @media all and (min-width: 768px) and (max-width: 1024px) { 
-    .game-id div img{
-        height: 600px;
-        width: 100%;
-        max-width: 100%;
-    }
+
     .released{
         font-size: 1rem;
     }
@@ -119,11 +117,7 @@
     .game-id * {
         max-width: 100%;
     }
-    .game-id div img{
-        height: 800px;
-        width: 100%;
-        max-width: 100%;
-    }
+
     .released{
         font-size: 1.1rem;
     }

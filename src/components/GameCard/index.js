@@ -29,7 +29,7 @@ function GameCard({className, ...props}){
 			/>
 			
 
-			<h3 alt={props.id} className="name-game">{props.name} </h3>
+			<h3 alt={props.name} className="name-game">{props.name} </h3>
 			
 		</div>
 	);

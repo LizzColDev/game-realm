@@ -1,10 +1,12 @@
-import React, { useEffect } from 'react';
+import React, { Suspense, lazy, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import './styles.css';
 import { BackBtn } from '../components/BackBtn';
-import GameCard from '../components/GameCard';
 import {useGamesByGenre} from '../App/GameContext/useGamesByGenre';
 import { useParams } from 'react-router-dom';
+
+const GameCard = lazy(() => import('../components/GameCard/index.js'));
+
 function GamesByGenresPage() {
 	document.body.style.overflow = 'auto';
 	const { genre } = useParams();
@@ -26,27 +28,26 @@ function GamesByGenresPage() {
 
 	return (
 		<>
-			<div>
+			<div style={{display: 'flex', width: '100%', flexFlow: 'row wrap', justifyContent: 'center'}}>
 				<BackBtn />
 
 				<h1>{genre} Games</h1>
+				<div className='pages-container'>
 
-				{gamesByGenres &&
+					<div className='page-contain-img' >
+						{gamesByGenres &&
 					gamesByGenres.map((game) => (
-						<div className='pages-container' key={game.id}>
-							<div>
-							</div>
-
-							<div className='page-contain-img'>
-								<GameCard
-									id={game.id}
-									className='pages'
-									name={game.name}
-									src={game.background_image}
-								/>
-							</div>
-						</div>
+						<Suspense key={game.id} fallback={<div>Loading...</div>}>
+							<GameCard
+								id={game.id}
+								className='pages'
+								name={game.name}
+								src={game.background_image}
+							/>
+						</Suspense>
 					))}
+					</div>
+				</div>
 			</div>
 		</>
 	);
