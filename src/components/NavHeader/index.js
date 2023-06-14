@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { Navbar, Nav, NavDropdown, Form, Button, Container, Offcanvas, InputGroup } from 'react-bootstrap';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import './styles.css';
 import { useDataByMenu } from '../../App/GameContext/useDataByMenu';
 import { GameContext } from '../../App/GameContext';
@@ -52,16 +52,29 @@ function NavHeader() {
 						</Offcanvas.Header>
 						<Offcanvas.Body>
 							<Nav className="navbar-center justify-content-end flex-grow-1 pe-3">
-								<Nav.Link as={Link} exact={true.toString()} to="/ranking-games">Ranking Games</Nav.Link>
-								<Nav.Link as={Link} exact={true.toString()} to="/upcoming-games">Upcoming Games</Nav.Link>
-								<Nav.Link as={Link} exact={true.toString()} to="/popular-games">Popular Games</Nav.Link>
-								<Nav.Link as={Link} exact={true.toString()} to="/news">News</Nav.Link>
+								<Nav.Link as={NavLink} exact={true.toString()} to="/ranking-games">Ranking Games</Nav.Link>
+								<Nav.Link as={NavLink} exact={true.toString()} to="/upcoming-games">Upcoming Games</Nav.Link>
+								<Nav.Link as={NavLink} exact={true.toString()} to="/popular-games">Popular Games</Nav.Link>
+								<Nav.Link as={NavLink} exact={true.toString()} to="/news">News</Nav.Link>
 								<NavDropdown title='Genres' id="offcanvasNavbarDropdown-expand-lg">
 									{isLoading ? (
 										<div>Loading ...</div>
 									) : (
 										data && data.genresGames.map((genre) => (
-											<NavDropdown.Item key={genre.id} as={Link} to={`/genres/${genre.name.toLowerCase()}`}>{genre.name}</NavDropdown.Item>
+											<NavDropdown.Item 
+												key={genre.id} 
+												as={NavLink} 
+												style={
+													({isActive}) => ({
+														color: isActive ? '#fcb322' : '', 
+														backgroundColor: isActive ? 'white' : '',
+														fontWeight: isActive ? 'bold' : ''
+													})
+												} 
+												to={`/genres/${genre.name.toLowerCase()}`
+												}>
+												{genre.name}
+											</NavDropdown.Item>
 										))
 								
 									)}

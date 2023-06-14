@@ -56,7 +56,6 @@
     text-align: center;
     color: var(--clr-grey-8);
     padding: 12px;
-
 }
 .nav-link:hover {
     border: solid 1px var(--clr-primary-5);
@@ -69,7 +68,7 @@
 } 
 
 .nav-link:focus, .nav-link.show {
-    color: var(--clr-grey-8);
+    color: var(--clr-primary-5);
 }
   .dropdown-menu.show {
     background-color:  rgba(32, 35, 41,0.97);
