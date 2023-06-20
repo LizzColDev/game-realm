@@ -1,8 +1,11 @@
+/* eslint-disable no-undef */
 import axios from 'axios';
-import { NEWS_VIDEOGAMES, RAWG_API_KEY } from '../../../API_KEY/API_KEY';
 
-const URL_RAWG = 'https://api.rawg.io/api/';
-const URL_NEWS_VIDEOGAMES = 'https://videogames-news2.p.rapidapi.com/videogames_news/';
+const URL_RAWG = process.env.REACT_APP_URL_RAWG;
+const apiKeyRawG = process.env.REACT_APP_RAWG_API_KEY;
+
+const URL_NEWS_VIDEOGAMES = process.env.REACT_APP_URL_NEWS_VIDEOGAMES;
+const apiKeyNewsVG = process.env.REACT_APP_NEWS_VIDEOGAMES;
 
 const API_RAWG = axios.create({
 	baseURL: URL_RAWG,
@@ -10,7 +13,7 @@ const API_RAWG = axios.create({
 		'Content-Type': 'aplication/json; charset=utf-8',
 	},
 	params: {
-		key: RAWG_API_KEY,	
+		key: apiKeyRawG,	
 	}
 });
 
@@ -20,7 +23,7 @@ const API_NEWS_VIDEOGAMES = axios.create({
 	headers: {
 		'Content-Type': 'aplication/json; charset=utf-8',
 		'X-RapidAPI-Host': 'videogames-news2.p.rapidapi.com',
-		'X-RapidAPI-Key': NEWS_VIDEOGAMES
+		'X-RapidAPI-Key': apiKeyNewsVG 
 	},
 	params: {
 		
