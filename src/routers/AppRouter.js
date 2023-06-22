@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
+import { HashRouter, Route, Routes} from 'react-router-dom';
 import {GamesByGenresPage} from '../pages/GamesByGenresPage';
 import {GamesByRankingPage} from '../pages/GamesByRankingPage';
 import {NewsPage} from '../pages/NewsPages';
@@ -33,7 +33,7 @@ function AppRouter(){
 	const {rankingGames,  upcomingGames, popularGames} = data;
 
 	return(
-		<Router>
+		<HashRouter>
 			<NavHeader />
 			<Routes>
 				<Route exact path='/' element={<HomePage/>} />
@@ -93,7 +93,7 @@ function AppRouter(){
 	   
 			</ModalByGame>
 		   }	
-		</Router>
+		</HashRouter>
 		
 	);
 }
