@@ -22,10 +22,12 @@
     "eslint": "^8.34.0",
     "eslint-config-prettier": "^8.6.0",
     "eslint-plugin-react": "^7.32.2",
+    "gh-pages": "^5.0.0",
     "husky": "^8.0.3",
     "lint-staged": "^13.1.2",
     "prettier": "^2.8.4",
-    "react-scripts": "^5.0.1"
+    "react-scripts": "^5.0.1",
+    "@svgr/webpack": "^8.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -61,5 +63,8 @@
       "prettier --write",
       "git add"
     ]
+  },
+  "overrides": {
+    "@svgr/webpack": "$@svgr/webpack"
   }
 }
