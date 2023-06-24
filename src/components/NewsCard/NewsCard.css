@@ -19,7 +19,6 @@
   width: 100%;
   object-fit: cover;
   height: 100%;
-  border-radius: 12px;
 }
 
 .news-img{
@@ -41,12 +40,14 @@
  }
 
 .title-news{
+  
   position: absolute;
+  right: 0;
   z-index: 1;
   bottom: 0;
   background-color: rgba(29, 28, 28, 0.5);
   padding: 10px;
-  color: var(--clr-primary-8);
+  color: var(--clr-grey-10);
   margin-bottom: 0;
   display: -webkit-box;
   -webkit-line-clamp: 3;
