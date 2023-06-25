@@ -48,25 +48,24 @@ function GameContain(){
 
 			<div className='stores-genres-game'>
 				<div>
-					<h5>Stores:</h5>
+					<h5 style={{backgroundColor: 'var(--clr-primary-2)'}}>Genres:</h5>
+					{genres && genres.map(genre =>(
+						<Button onClick={() => setOpenModalByGame(false)} as={Link} key={genre.id} to={`/genres/${genre.name.toLowerCase()}`}>
+							{genre.name}
+						</Button>
+					))}
+				</div>
+				<div>
+					<h5 style={{backgroundColor: 'var(--clr-primary-2)'}} >Stores:</h5>
 					{stores && stores.map(store =>(
 						<h2 key={stores.id}>
-							<Badge bg="light" text="dark">{store.store.name}						
+							<Badge className="fs-6" bg="light" text="dark">{store.store.name}						
 							</Badge>
 						</h2>
 					
 
 					))}
 				</div>
-				<div>
-					<h5>Genres:</h5>
-					{genres && genres.map(genre =>(
-						<Button as={Link} key={genre.id} to={`/genres/${genre.name.toLowerCase()}`}>
-							{genre.name}
-						</Button>
-					))}
-				</div>
-
 			</div>
 		</div>
 	);
