@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/game-world/static/css/main.a60964fc.css",
+    "main.js": "/game-world/static/js/main.d7906c4b.js",
+    "static/css/469.d024f821.chunk.css": "/game-world/static/css/469.d024f821.chunk.css",
+    "static/js/469.cb579ffb.chunk.js": "/game-world/static/js/469.cb579ffb.chunk.js",
+    "static/css/551.66342eca.chunk.css": "/game-world/static/css/551.66342eca.chunk.css",
+    "static/js/551.2a21cade.chunk.js": "/game-world/static/js/551.2a21cade.chunk.js",
+    "index.html": "/game-world/index.html",
+    "main.a60964fc.css.map": "/game-world/static/css/main.a60964fc.css.map",
+    "main.d7906c4b.js.map": "/game-world/static/js/main.d7906c4b.js.map",
+    "469.d024f821.chunk.css.map": "/game-world/static/css/469.d024f821.chunk.css.map",
+    "469.cb579ffb.chunk.js.map": "/game-world/static/js/469.cb579ffb.chunk.js.map",
+    "551.66342eca.chunk.css.map": "/game-world/static/css/551.66342eca.chunk.css.map",
+    "551.2a21cade.chunk.js.map": "/game-world/static/js/551.2a21cade.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a60964fc.css",
+    "static/js/main.d7906c4b.js"
+  ]
+}
