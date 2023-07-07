@@ -14,12 +14,3 @@ jobs:
         run: |
           npm ci
           npm run build
-
-      - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@v4
-        with:
-          branch: gh-pages
-          folder: build # The folder the action should deploy.
-
-      - name: Tell me a secret!
-        run: echo "My existing secret is ${{ secrets.REACT_APP_RAWG_API_KEY}}"
