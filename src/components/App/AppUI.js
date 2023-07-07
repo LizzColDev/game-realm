@@ -1,19 +1,19 @@
 import React, {lazy, Suspense}  from 'react';
 import './App.css';
-import { GameContext } from './GameContext';
-import { NewsContainer } from '../components/NewsContainer';
-import { UpcomingContainer } from '../components/UpcomingContainer';
-import { ModalByGame } from '../components/Modal/modalByGame';
-import { GameContain} from '../components/GameDetail';
-import { PopularContainer } from '../components/PopularContainer';
-import { MainContain } from '../components/MainContain';
-import { SectionNewsUpcoming } from '../components/SectionNewsUpcoming';
-import {  useGames } from './GameContext/useDataGames';
-import { useGamesNews } from './GameContext/useGamesNews';
+import { UpcomingContainer } from '../UI/UpcomingContainer';
+import { ModalByGame } from '../UI/Modal/modalByGame';
+import { GameContain} from '../UI/GameDetail';
+import { PopularContainer } from '../UI/PopularContainer';
+import { MainContain } from '../UI/MainContain';
+import { SectionNewsUpcoming } from '../UI/SectionNewsUpcoming';
+import {  useGames } from '../../GameContext/useDataGames';
+import { useGamesNews } from '../../GameContext/useGamesNews';
+import { GameContext } from '../../GameContext/GameProvider';
+import { NewsContainer } from '../UI/NewsContainer';
 
 
-const LazyGameCard = lazy(() => import('../components/GameCard'));
-const LazyNewsImage = lazy(()=> import ('../components/NewsCard'));
+const LazyGameCard = lazy(() => import('../common/GameCard'));
+const LazyNewsImage = lazy(()=> import ('../UI/NewsCard'));
 
 function AppUI() {
 	const {

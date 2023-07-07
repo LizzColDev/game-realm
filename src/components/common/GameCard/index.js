@@ -1,8 +1,8 @@
 import React, {useContext} from 'react';
 import PropTypes from 'prop-types';
 import './GameCard.css';
-import { GameContext } from '../../App/GameContext';
-import { useIntersectionObserver } from '../../App/GameContext/useIntersectionObserver';
+import { GameContext } from '../../../GameContext/GameProvider';
+import { useIntersectionObserver } from '../../../GameContext/useIntersectionObserver';
 
 function GameCard({className, ...props}){
 	const {getId, setOpenModalByGame} =useContext(GameContext);

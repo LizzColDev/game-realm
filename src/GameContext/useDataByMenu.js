@@ -1,5 +1,6 @@
 import { useQuery, useQueryClient } from 'react-query';
-import { API_RAWG } from './apiConfig';
+import { API_RAWG } from '../services/api';
+
 
 const fetchGames = async () => {
 	
