@@ -1,11 +1,11 @@
 /* eslint-disable no-undef */
 import axios from 'axios';
 
-const URL_RAWG = secrets.env.REACT_APP_URL_RAWG;
-const apiKeyRawG = secrets.env.REACT_APP_RAWG_API_KEY;
+const URL_RAWG = process.env.REACT_APP_URL_RAWG;
+const apiKeyRawG = process.env.REACT_APP_RAWG_API_KEY;
 
-const URL_NEWS_VIDEOGAMES = secrets.env.REACT_APP_URL_NEWS_VIDEOGAMES;
-const apiKeyNewsVG = secrets.env.REACT_APP_NEWS_VIDEOGAMES;
+const URL_NEWS_VIDEOGAMES = process.env.REACT_APP_URL_NEWS_VIDEOGAMES;
+const apiKeyNewsVG = process.env.REACT_APP_NEWS_VIDEOGAMES;
 
 const API_RAWG = axios.create({
 	baseURL: URL_RAWG,
