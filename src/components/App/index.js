@@ -1,7 +1,7 @@
 import React from 'react';
-import { AppRouter } from '../routers/AppRouter';
-import { GameProvider } from './GameContext';
 import { QueryClient, QueryClientProvider } from 'react-query';
+import { GameProvider } from '../../GameContext/GameProvider';
+import { AppRouter } from '../../routes/AppRouter';
 
 const queryClient = new QueryClient();
 

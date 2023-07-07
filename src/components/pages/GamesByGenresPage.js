@@ -1,11 +1,11 @@
 import React, { Suspense, lazy, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import './styles.css';
-import { BackBtn } from '../components/BackBtn';
-import {useGamesByGenre} from '../App/GameContext/useGamesByGenre';
+import { BackBtn } from '../common/BackBtn';
+import {useGamesByGenre} from '../../GameContext/useGamesByGenre';
 import { useParams } from 'react-router-dom';
 
-const GameCard = lazy(() => import('../components/GameCard/index.js'));
+const GameCard = lazy(() => import('../common/GameCard'));
 
 function GamesByGenresPage() {
 	document.body.style.overflow = 'auto';

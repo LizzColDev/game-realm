@@ -1,15 +1,15 @@
 import React from 'react';
 import { HashRouter, Route, Routes} from 'react-router-dom';
-import {GamesByGenresPage} from '../pages/GamesByGenresPage';
-import {GamesByRankingPage} from '../pages/GamesByRankingPage';
-import {NewsPage} from '../pages/NewsPages';
-import {NotFoundPage} from '../pages/NotFoundPage';
-import { HomePage } from '../pages/HomePage';
-import { GameContext } from '../App/GameContext';
-import { ModalByGame } from '../components/Modal/modalByGame';
-import { GameContain } from '../components/GameDetail';
-import { NavHeader } from '../components/NavHeader';
-import {useGames} from '../App/GameContext/useDataGames';
+import {GamesByRankingPage} from '../components/pages/GamesByRankingPage';
+import {NewsPage} from '../components/pages/NewsPages';
+import {NotFoundPage} from '../components/pages/NotFoundPage';
+import { HomePage } from '../components/pages/HomePage';
+import { GameContext } from '../GameContext/GameProvider';
+import { ModalByGame } from '../components/UI/Modal/modalByGame';
+import { GameContain } from '../components//UI/GameDetail';
+import { NavHeader } from '../components//UI/NavHeader';
+import {useGames} from '../GameContext/useDataGames';
+import { GamesByGenresPage } from '../components/pages/GamesByGenresPage';
 
 
 function AppRouter(){

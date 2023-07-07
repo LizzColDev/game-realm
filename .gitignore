@@ -28,3 +28,7 @@ webpack.config.js
 
 #KEY
 src/API_KEY
+
+/.vscode
+
+
