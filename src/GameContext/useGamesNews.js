@@ -1,5 +1,5 @@
-import {API_NEWS_VIDEOGAMES} from './apiConfig';
 import { useQuery, useQueryClient } from 'react-query';
+import { API_NEWS_VIDEOGAMES } from '../services/api';
 
 const fetchNews = async () => {
 	try {

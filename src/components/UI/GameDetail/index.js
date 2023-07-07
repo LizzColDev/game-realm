@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
-import {AddFavoriteButton} from '../../components/LikeButton';
+import {AddFavoriteButton} from '../../common/LikeButton';
 import './GameById.css';
-import { GameContext } from '../../App/GameContext';
+import { GameContext } from '../../../GameContext/GameProvider';
 import parse from 'html-react-parser';
-import { CloseBtn } from '../CloseBtn';
+import { CloseBtn } from '../../common/CloseBtn';
 import { Link } from 'react-router-dom';
 import { Badge, Button } from 'react-bootstrap';
 

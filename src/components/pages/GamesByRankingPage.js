@@ -1,9 +1,9 @@
 import React, { Suspense, lazy } from 'react';
 import PropTypes from 'prop-types';
 import './styles.css';
-import { BackBtn } from '../components/BackBtn';
+import { BackBtn } from '../common/BackBtn';
 
-const GameCard = lazy(() => import('../components/GameCard/index.js'));
+const GameCard = lazy(() => import('../common/GameCard/index.js'));
 
 //pend infinite scrolling
 

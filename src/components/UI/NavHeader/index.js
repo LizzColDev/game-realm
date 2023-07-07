@@ -2,8 +2,8 @@ import React, { useContext, useState } from 'react';
 import { Navbar, Nav, NavDropdown, Form, Button, Container, Offcanvas, InputGroup } from 'react-bootstrap';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import './styles.css';
-import { useDataByMenu } from '../../App/GameContext/useDataByMenu';
-import { GameContext } from '../../App/GameContext';
+import { useDataByMenu } from '../../../GameContext/useDataByMenu';
+import { GameContext } from '../../../GameContext/GameProvider';
 
 function NavHeader() {
 	const { query, setQuery } = useContext(GameContext);

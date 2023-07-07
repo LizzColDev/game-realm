@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { API_RAWG } from './apiConfig';
+import { API_RAWG } from '../services/api';
 
 function useGamesBySearch(query){
 	const [gamesBySearch, setGamesBySearch] = useState([]); 	

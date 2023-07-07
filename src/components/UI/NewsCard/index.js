@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import './NewsCard.css';
-import { useIntersectionObserver } from '../../App/GameContext/useIntersectionObserver';
+import { useIntersectionObserver } from '../../../GameContext/useIntersectionObserver';
 import { Card } from 'react-bootstrap';
 
 function NewsCard(props) {
