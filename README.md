@@ -13,6 +13,7 @@
 - [Usage](#usage)
 - [Libraries and Frameworks Used](#libraries-and-frameworks-used)
 - [Functionality](#functionality)
+- [Using Docker Compose](#using-docker-compose)
 - [Limitations](#limitations)
 - [Future Improvements](#future-improvements)
 - [Contributing](#contributing)
@@ -35,21 +36,27 @@ Before running the Game World web application, you need to obtain API keys for t
 
 Once you have obtained the API keys, you can proceed with the following steps:
 
-1. Create a new folder called `API_KEY` in the root directory of the project.
-2. Inside the `API_KEY` folder, create a new file named `API_KEY.js`.
-3. Open the `API_KEY.js` file and add the following lines:
+1. Create a new file named `.env` in the root directory of the project.
+2. Open the `.env` file and add the following lines:
+    ```
+    REACT_APP_RAWG_API_KEY=<your_rawg_api_key>
+    REACT_APP_URL_RAWG=<rawg_url>
+    REACT_APP_URL_NEWS_VIDEOGAMES=<news_videogames_url>
+    REACT_APP_NEWS_VIDEOGAMES=<news_videogames_api_key>
+    ```
+    Replace `<your_rawg_api_key>`, `<rawg_url>`, `<news_videogames_url>`, and `<news_videogames_api_key>` with your actual values.
+3. Save the `.env` file.
+4. Run the following command to install the dependencies:
+    ```bash
+    npm install
+    ```
+5. Start the application:
+    ```bash
+    npm start
+    ```
+6. Once the application is running, open your browser and go to http://localhost:3000 to access the Game World application.
 
-
-  ```javascript
-const RAWG_API_KEY=YOUR_RAWG_API_KEY;
-const NEWS_VIDEOGAMES=YOUR_NEWS_API_KEY;
-
-export {RAWG_API_KEY, NEWS_VIDEOGAMES};
-   ```
-Replace 'YOUR_RAWG_API_KEY' with your actual RAWG API key and 'YOUR_NEWS_API_KEY' with your actual News API key.
-
-Save the API_KEY.js file.
-Once you have completed the above steps, you can proceed with running the application as mentioned in the previous instructions.
+Please ensure that you have Node.js and npm installed on your system before proceeding with the above steps. The .env file is used to store the environment variables required for the application to run. Make sure to define the necessary variables in this file before starting the application.
 
 Note: Make sure to keep your API keys confidential and do not share them publicly.
 
@@ -85,6 +92,29 @@ The Game World web application offers the following functionality:
 - Fetching news articles using the News API and presenting them on the news page.
 - Allowing users to search for specific games by name or genre.
 - Utilizing React Router for seamless navigation between different pages.
+
+## Using Docker Compose
+
+1. Make sure you have Docker and Docker Compose installed on your system.
+2. Open a terminal and navigate to the directory where your docker-compose.yml file is located.
+3. Create a file named `.env.local` in the same directory as the docker-compose.yml file.
+4. Open the `.env.local` file and add the following environment variables:
+    ```
+    REACT_APP_RAWG_API_KEY=<your_rawg_api_key>
+    REACT_APP_URL_RAWG=<rawg_url>
+    REACT_APP_URL_NEWS_VIDEOGAMES=<news_videogames_url>
+    REACT_APP_NEWS_VIDEOGAMES=<news_videogames_api_key>
+    ```
+    Replace `<your_rawg_api_key>`, `<rawg_url>`, `<news_videogames_url>`, and `<news_videogames_api_key>` with your actual values.
+5. Run the following command to build and start the containers defined in the docker-compose.yml file:
+    ```yaml
+    docker-compose up -d
+    ```
+    This will create and run the containers in the background.
+6. Once the containers are up and running, open your browser and go to http://localhost:3000 to access the MovieTime application.
+
+Please ensure that you have Docker and Docker Compose installed before proceeding with the above steps. The `.env.local` file is used to store the environment variables required for the application to run. Make sure to define the necessary variables in this file before running the Docker Compose command. Replace the placeholder values in the example with your actual values. For more details, refer to the project documentation or consult the project maintainers.
+
 
 ## Limitations
 
