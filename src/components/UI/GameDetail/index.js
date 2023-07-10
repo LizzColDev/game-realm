@@ -15,7 +15,6 @@ function GameContain(){
 		);
 	}
 	const {id, name, rating, released, description, background_image, stores, genres} = gameById;
-	{console.log(genres);}
 
 	let ratingDec = rating.toFixed(1);
 	return (
@@ -58,7 +57,7 @@ function GameContain(){
 				<div>
 					<h5 style={{backgroundColor: 'var(--clr-primary-2)'}} >Stores:</h5>
 					{stores && stores.map(store =>(
-						<h2 key={stores.id}>
+						<h2 key={stores.name}>
 							<Badge className="fs-6" bg="light" text="dark">{store.store.name}						
 							</Badge>
 						</h2>
