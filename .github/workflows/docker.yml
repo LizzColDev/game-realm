@@ -1,0 +1,23 @@
+name: Build and Test with Docker Compose
+
+on:
+    push:
+        branches:
+            - dev
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v3
+
+            - name: Set up Docker Compose
+              run: docker compose up -d
+            
+            - name: Run tests
+              run: docker compose run app npm test
+            
+            - name: Tear down Docker Compose
+              run: docker compose down
