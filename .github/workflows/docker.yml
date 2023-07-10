@@ -1,10 +1,6 @@
 name: Build and Test with Docker Compose
 
-on:
-    push:
-        branches:
-            - dev
-            - feature/gh-actions
+on: [push]
 
 jobs:
     build:
