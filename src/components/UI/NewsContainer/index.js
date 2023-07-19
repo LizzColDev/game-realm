@@ -18,7 +18,7 @@ function NewsContainer(props){
 	);
 }
 NewsContainer.propTypes = {
-	children: PropTypes.node.isRequired,
+	children: PropTypes.node,
 };
   
 export {NewsContainer};

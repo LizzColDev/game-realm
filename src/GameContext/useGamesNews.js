@@ -3,7 +3,8 @@ import { API_NEWS_VIDEOGAMES } from '../services/api';
 
 const fetchNews = async () => {
 	try {
-		const {data} = await API_NEWS_VIDEOGAMES.get('recent');
+		const {data} = await API_NEWS_VIDEOGAMES.get();
+		console.log(data);
 		return data;
 	} catch(error){
 		console.error(error);

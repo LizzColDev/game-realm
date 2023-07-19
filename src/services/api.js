@@ -20,14 +20,15 @@ const API_RAWG = axios.create({
 
 const API_NEWS_VIDEOGAMES = axios.create({
 	baseURL: URL_NEWS_VIDEOGAMES,
+	params: {
+		q: 'video games'
+	},
 	headers: {
 		'Content-Type': 'aplication/json; charset=utf-8',
-		'X-RapidAPI-Host': 'videogames-news2.p.rapidapi.com',
+		'X-RapidAPI-Host': 'news-api14.p.rapidapi.com',
 		'X-RapidAPI-Key': apiKeyNewsVG 
-	},
-	params: {
-		
 	}
+
 });
 
 export {API_RAWG, API_NEWS_VIDEOGAMES};
