@@ -4,8 +4,8 @@ import { API_NEWS_VIDEOGAMES } from '../services/api';
 const fetchNews = async () => {
 	try {
 		const {data} = await API_NEWS_VIDEOGAMES.get();
-		console.log(data);
-		return data;
+		const news = data.articles;
+		return news;
 	} catch(error){
 		console.error(error);
 	}

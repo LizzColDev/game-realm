@@ -62,10 +62,10 @@ function AppUI() {
 								<LazyNewsImage	
 									className={'genre-contain'}						
 									name={game.title}
-									src={game.image}
-									url={game.link}
-									date={game.date}
-									description={game.description}
+									// src={game.image}
+									url={game.url}
+									date={game.published_date}
+									description={game.title}
 								/>
 							</Suspense>
 						)))}

@@ -21,7 +21,7 @@ const API_RAWG = axios.create({
 const API_NEWS_VIDEOGAMES = axios.create({
 	baseURL: URL_NEWS_VIDEOGAMES,
 	params: {
-		q: 'video games'
+		q: 'video games',
 	},
 	headers: {
 		'Content-Type': 'aplication/json; charset=utf-8',
